@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ReceiptIcon from "./icons/ReceiptIcon";
-import { cloneElement, JSX, SVGProps } from "react";
+import React, { cloneElement, JSX, SVGProps } from "react";
 import CallIcon from "./icons/CallIcon";
 import AvatarIcon from "./icons/AvatarIcon";
 import TableIcon from "./icons/TableIcon";
@@ -41,6 +41,7 @@ const Header = styled.div`
   font-size: 20px;
   line-height: 32px;
   font-weight: 500;
+  gap: 4px;
 `;
 
 const Description = styled.div`
@@ -55,15 +56,15 @@ const Description = styled.div`
   }
 `;
 
-const DescriptionBox = styled.div``;
-
 const Footer = styled.div`
   display: flex;
   justify-content: space-between;
+  vertical-align: middle;
 
   & div {
     font-size: 12px;
     line-height: 16px;
+    font-weight: 500;
   }
 `;
 
@@ -75,10 +76,14 @@ export default function CardOrderSheet({
     createdAt,
     orderStatus,
     totalPrice,
-}: OrderCardProps) {
+    ...props
+}: OrderCardProps & React.HTMLAttributes<HTMLDivElement>) {
     const DescriptionIconProps: SVGProps<SVGSVGElement> = {
         width: "10px",
         height: "10px",
+        style: {
+            marginRight: "2px",
+        },
     };
 
     function getSubtitleIcon() {
@@ -92,7 +97,7 @@ export default function CardOrderSheet({
     }
 
     return (
-        <Container>
+        <Container {...props}>
             <div>
                 <Header>
                     <ReceiptIcon width={14.17} height={15.39} />
@@ -101,22 +106,22 @@ export default function CardOrderSheet({
                 {(subtitle || tableText || locationText) && (
                     <Description>
                         {subtitle && (
-                            <DescriptionBox>
+                            <div>
                                 {getSubtitleIcon()}
                                 {subtitle.value}
-                            </DescriptionBox>
+                            </div>
                         )}
                         {tableText && (
-                            <DescriptionBox>
+                            <div>
                                 <TableIcon {...DescriptionIconProps} />
                                 {tableText}
-                            </DescriptionBox>
+                            </div>
                         )}
                         {locationText && (
-                            <DescriptionBox>
+                            <div>
                                 <LocationIcon {...DescriptionIconProps} />
                                 {locationText}
-                            </DescriptionBox>
+                            </div>
                         )}
                     </Description>
                 )}
