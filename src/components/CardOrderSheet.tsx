@@ -6,6 +6,8 @@ import AvatarIcon from "./icons/AvatarIcon";
 import TableIcon from "./icons/TableIcon";
 import LocationIcon from "./icons/LocationIcon";
 import MinutesPassed from "./MinutesPassed";
+import TimerIcon from "./icons/TimerIcon";
+import StatusIcon from "./icons/StatusIcon";
 
 export interface OrderCardProps {
     title: string;
@@ -27,8 +29,8 @@ const Container = styled.div`
   width: 199px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   flex-direction: column;
-  border: 2px solid black;
   padding: 12px;
   border-radius: 8px;
 `;
@@ -46,11 +48,24 @@ const Description = styled.div`
   gap: 2px;
   display: flex;
   flex-direction: column;
+
+  & * {
+    font-size: 12px;
+    line-height: 16px;
+  }
 `;
 
 const DescriptionBox = styled.div``;
 
-const Footer = styled.div``;
+const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  & div {
+    font-size: 12px;
+    line-height: 16px;
+  }
+`;
 
 export default function CardOrderSheet({
     title,
@@ -83,7 +98,7 @@ export default function CardOrderSheet({
                     <ReceiptIcon width={14.17} height={15.39} />
                     {title}
                 </Header>
-                {subtitle && tableText && locationText && (
+                {(subtitle || tableText || locationText) && (
                     <Description>
                         {subtitle && (
                             <DescriptionBox>
@@ -107,7 +122,15 @@ export default function CardOrderSheet({
                 )}
             </div>
             <Footer>
-                <MinutesPassed />
+                <div>
+                    <TimerIcon {...DescriptionIconProps} />
+                    <MinutesPassed from={createdAt} /> min
+                </div>
+                <div>
+                    <StatusIcon {...DescriptionIconProps} />
+                    {orderStatus}
+                </div>
+                <div>R${totalPrice}</div>
             </Footer>
         </Container>
     );
