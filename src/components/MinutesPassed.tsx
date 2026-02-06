@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export interface MinutesPassedProps {
-    from: Date;
+    from?: Date;
 }
 
 export default function MinutesPassed({
