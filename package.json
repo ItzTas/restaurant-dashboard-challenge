@@ -9,7 +9,7 @@
         "start": "next start",
         "lint": "eslint",
         "mock-api": "json-server --watch db.json --port 3001",
-        "dev:all": "concurrently \"yarn run dev\" \"yarn run mock-api\""
+        "dev:all": "yarn run mock-api & yarn run dev"
     },
     "dependencies": {
         "modern-normalize": "^3.0.1",
