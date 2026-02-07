@@ -1,5 +1,11 @@
-import CardMesa from "@/components/CardMesa";
-import CardOrdersheet from "@/components/CardOrdersheet";
+import CardMesa from "@/components/cards/CardMesa";
+import CardOrderSheet from "@/components/cards/CardOrdersheet";
+
+const NOW = new Date();
+
+const FIVE_MIN_AGO = new Date(NOW.getTime() - 1000 * 60 * 5);
+const TWELVE_MIN_AGO = new Date(NOW.getTime() - 1000 * 60 * 12);
+const TWENTY_MIN_AGO = new Date(NOW.getTime() - 1000 * 60 * 20);
 
 export default function Home() {
     return (
@@ -13,9 +19,8 @@ export default function Home() {
                         type: "customer",
                     },
                     location: "Salão Principal",
-                    createdAt: new Date(),
-                    waiter: "LG",
-                    status: "open",
+                    createdAt: NOW,
+                    status: "LG",
                     totalPrice: 199.9,
                 }}
             />
@@ -29,9 +34,8 @@ export default function Home() {
                         type: "phone",
                     },
                     location: "Lounge",
-                    createdAt: new Date(Date.now() - 1000 * 60 * 5),
-                    waiter: "JP",
-                    status: "pending",
+                    createdAt: FIVE_MIN_AGO,
+                    status: "JP",
                     totalPrice: 59.5,
                 }}
             />
@@ -40,15 +44,46 @@ export default function Home() {
                 tableNumber={9}
                 data={{
                     code: "004",
+                    contact: {
+                        value: "Carolina",
+                        type: "customer",
+                    },
                     location: "Salão Principal",
-                    createdAt: new Date(Date.now() - 1000 * 60 * 12),
-                    waiter: "LG",
-                    status: "closed",
+                    createdAt: TWELVE_MIN_AGO,
+                    status: "LG",
                     totalPrice: 320,
                 }}
             />
 
             <CardMesa tableNumber={13} />
+
+            <CardMesa
+                tableNumber={16}
+                data={{
+                    code: "002",
+                    contact: {
+                        value: "95 98888-7777",
+                        type: "phone",
+                    },
+                    location: "Varanda",
+                    createdAt: TWENTY_MIN_AGO,
+                    status: "AM",
+                    totalPrice: 480.75,
+                }}
+            />
+
+            <CardOrderSheet
+                title="75340864"
+                subtitle={{
+                    value: "Mailson",
+                    type: "customer",
+                }}
+                tableText="Mesa 7"
+                locationText="Salão Principal"
+                createdAt={new Date("2026-02-07T13:30:00")}
+                orderStatus="LG"
+                totalPrice={199.9}
+            />
         </div>
     );
 }
