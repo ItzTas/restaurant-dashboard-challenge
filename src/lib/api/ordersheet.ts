@@ -6,5 +6,5 @@ export async function fetchAllOrdersheet(): Promise<OrdersheetsResponse> {
     if (!res.ok) {
         throw new Error("Failed to fetch");
     }
-    return {};
+    return res.json();
 }
