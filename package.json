@@ -7,7 +7,9 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "eslint",
+        "mock-api": "json-server --watch db.js --port 3001 --delay 500",
+        "dev:all": "concurrently \"yarn run dev\" \"yarn run mock-api\""
     },
     "dependencies": {
         "modern-normalize": "^3.0.1",
