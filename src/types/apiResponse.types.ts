@@ -16,21 +16,33 @@ export interface AreasResponse {
 
 export interface CheckpadModel {
     id: number;
-    icon: Icon;
+    icon: ModelIcon;
     name: Model;
 }
 
-export enum Icon {
-    Apartment = "apartment",
-    TableRestaurant = "table-restaurant",
-    Tent = "tent",
-}
+export const ModelIcon = {
+    Apartment: "apartment",
+    TableRestaurant: "table-restaurant",
+    Tent: "tent",
+} as const;
 
-export enum Model {
-    Apartamento = "Apartamento",
-    Barraca = "Barraca",
-    Mesa = "Mesa",
-}
+export type ModelIcon = (typeof ModelIcon)[keyof typeof ModelIcon];
+
+export const Model = {
+    Apartamento: "Apartamento",
+    Barraca: "Barraca",
+    Mesa: "Mesa",
+} as const;
+
+export type Model = (typeof Model)[keyof typeof Model];
+
+export const Activity = {
+    Active: "active",
+    Empty: "empty",
+    Inactive: "inactive",
+} as const;
+
+export type Activity = (typeof Activity)[keyof typeof Activity];
 
 export interface CheckpadsResponse {
     [key: string]: CheckpadValue;
@@ -40,7 +52,7 @@ export interface CheckpadValue {
     id: number;
     hash: string;
     model: Model;
-    modelIcon: Icon;
+    modelIcon: ModelIcon;
     activity: Activity;
     hasOrder: number;
     idleTime: number | null;
@@ -52,12 +64,6 @@ export interface CheckpadValue {
     lastOrderCreated: Date | null;
     numberOfCustomers: number | null;
     customerIdentifier: string | null;
-}
-
-export enum Activity {
-    Active = "active",
-    Empty = "empty",
-    Inactive = "inactive",
 }
 
 export interface OrdersheetsResponse {
