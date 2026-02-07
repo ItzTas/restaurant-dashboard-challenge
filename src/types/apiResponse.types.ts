@@ -1,5 +1,3 @@
-// these types were generated in https://app.quicktype.io and https://transform.tools/json-to-typescript and they were modified to match the api
-
 export interface AreasResponse {
     id: string;
     name: string;
