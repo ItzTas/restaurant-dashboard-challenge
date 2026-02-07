@@ -12,7 +12,7 @@ const Footer = styled.div`
   }
 `;
 
-type Props = React.ComponentProps<"div">;
+type Props = React.ComponentProps<typeof Footer>;
 
 export default function CardFooter({ children, ...props }: Props) {
     return <Footer {...props}>{children}</Footer>;

@@ -9,7 +9,7 @@ const Header = styled.div`
   gap: 4px;
 `;
 
-type Props = React.ComponentProps<"div">;
+type Props = React.ComponentProps<typeof Header>;
 
 export default function CardHeader({ children, ...props }: Props) {
     return <Header {...props}>{children}</Header>;

@@ -11,7 +11,7 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 
-type Props = React.ComponentProps<"div">;
+type Props = React.ComponentProps<typeof Container>;
 
 export default function CardContainer({ children, ...props }: Props) {
     return <Container {...props}>{children}</Container>;

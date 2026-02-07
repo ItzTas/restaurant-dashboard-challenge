@@ -14,9 +14,7 @@ const Description = styled.div<{ $mt?: string }>`
   }
 `;
 
-interface Props extends React.ComponentProps<"div"> {
-    $mt?: string;
-}
+type Props = React.ComponentProps<typeof Description>;
 
 export default function CardDescription({ children, ...props }: Props) {
     return <Description {...props}>{children}</Description>;
