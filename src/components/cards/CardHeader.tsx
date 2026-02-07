@@ -3,8 +3,8 @@ import styled from "styled-components";
 const Header = styled.div`
   display: flex;
   align-items: center;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 1.6;
   font-weight: 500;
   gap: 4px;
   letter-spacing: -2%;

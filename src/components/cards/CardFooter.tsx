@@ -6,8 +6,8 @@ const Footer = styled.div`
   vertical-align: middle;
 
   & * {
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.75rem;
+    line-height: 1.33;
     font-weight: 500;
   }
 `;

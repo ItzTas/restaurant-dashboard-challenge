@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const Description = styled.div<{ $mt?: string }>`
-  text-wrap: nowrap;
-  gap: 2px;
+  white-space: nowrap;
+  gap: 0.125rem;
   display: flex;
   flex-direction: column;
   margin-top: ${({ $mt }) => $mt};
 
   & * {
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.75rem;
+    line-height: 1.33;
   }
 `;
 

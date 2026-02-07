@@ -8,8 +8,12 @@ const InputStyle = styled.input<{ height?: string; width?: string }>`
   border-radius: 8px;
   outline: none;
   border: none;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 type InputProps = React.ComponentProps<typeof InputStyle>;
