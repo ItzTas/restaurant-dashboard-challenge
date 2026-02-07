@@ -42,6 +42,7 @@ const Header = styled.div`
   line-height: 32px;
   font-weight: 500;
   gap: 4px;
+  margin-bottom: 4px;
 `;
 
 const Description = styled.div`
