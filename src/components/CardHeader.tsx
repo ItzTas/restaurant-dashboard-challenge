@@ -7,6 +7,7 @@ const Header = styled.div`
   line-height: 32px;
   font-weight: 500;
   gap: 4px;
+  letter-spacing: -2%;
 `;
 
 type Props = React.ComponentProps<typeof Header>;
