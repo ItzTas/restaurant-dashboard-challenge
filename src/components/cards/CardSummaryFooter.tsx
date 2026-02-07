@@ -1,8 +1,8 @@
-import TimerIcon from "./icons/TimerIcon";
-import StatusIcon from "./icons/StatusIcon";
-import MinutesPassed from "./MinutesPassed";
+import TimerIcon from "../icons/TimerIcon";
+import StatusIcon from "../icons/StatusIcon";
+import MinutesPassed from "../MinutesPassed";
+import { descriptionIconProps } from "../icons/iconPresets";
 import CardFooter from "./CardFooter";
-import { descriptionIconProps } from "./icons/iconPresets";
 
 export interface CardSummaryFooterProps {
     createdAt: Date;

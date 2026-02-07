@@ -1,13 +1,13 @@
-import CardContainer from "./CardContainer";
-import CardDescription from "./CardDescription";
-import CardHeader from "./CardHeader";
-import TableIcon from "./icons/TableIcon";
-import ReceiptIcon from "./icons/ReceiptIcon";
 import { cloneElement, JSX } from "react";
-import CallIcon from "./icons/CallIcon";
-import AvatarIcon from "./icons/AvatarIcon";
-import LocationIcon from "./icons/LocationIcon";
-import { descriptionIconProps } from "./icons/iconPresets";
+import CallIcon from "../icons/CallIcon";
+import AvatarIcon from "../icons/AvatarIcon";
+import ReceiptIcon from "../icons/ReceiptIcon";
+import LocationIcon from "../icons/LocationIcon";
+import TableIcon from "../icons/TableIcon";
+import { descriptionIconProps } from "../icons/iconPresets";
+import CardContainer from "./CardContainer";
+import CardHeader from "./CardHeader";
+import CardDescription from "./CardDescription";
 import CardSummaryFooter from "./CardSummaryFooter";
 
 export interface CardMesaProps {

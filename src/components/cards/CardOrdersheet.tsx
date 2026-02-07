@@ -1,13 +1,13 @@
-import ReceiptIcon from "./icons/ReceiptIcon";
+import ReceiptIcon from "../icons/ReceiptIcon";
 import React, { cloneElement, JSX } from "react";
-import CallIcon from "./icons/CallIcon";
-import AvatarIcon from "./icons/AvatarIcon";
-import TableIcon from "./icons/TableIcon";
-import LocationIcon from "./icons/LocationIcon";
+import CallIcon from "../icons/CallIcon";
+import AvatarIcon from "../icons/AvatarIcon";
+import TableIcon from "../icons/TableIcon";
+import LocationIcon from "../icons/LocationIcon";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
-import { descriptionIconProps } from "./icons/iconPresets";
+import { descriptionIconProps } from "../icons/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
 
 export interface OrderCardProps {
