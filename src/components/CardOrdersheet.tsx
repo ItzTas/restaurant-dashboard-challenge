@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import ReceiptIcon from "./icons/ReceiptIcon";
 import React, { cloneElement, JSX, SVGProps } from "react";
 import CallIcon from "./icons/CallIcon";
@@ -8,6 +7,10 @@ import LocationIcon from "./icons/LocationIcon";
 import MinutesPassed from "./MinutesPassed";
 import TimerIcon from "./icons/TimerIcon";
 import StatusIcon from "./icons/StatusIcon";
+import CardContainer from "./CardContainer";
+import CardHeader from "./CardHeader";
+import CardDescription from "./CardDescription";
+import CardFooter from "./CardFooter";
 
 export interface OrderCardProps {
     title: string;
@@ -23,51 +26,6 @@ export interface OrderCardProps {
 }
 
 type SubtitleType = NonNullable<OrderCardProps["subtitle"]>["type"];
-
-const Container = styled.div`
-  height: 150px;
-  width: 199px;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  flex-direction: column;
-  padding: 12px;
-  border-radius: 8px;
-`;
-
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  line-height: 32px;
-  font-weight: 500;
-  gap: 4px;
-  margin-bottom: 5px;
-`;
-
-const Description = styled.div`
-  text-wrap: nowrap;
-  gap: 2px;
-  display: flex;
-  flex-direction: column;
-
-  & * {
-    font-size: 12px;
-    line-height: 16px;
-  }
-`;
-
-const Footer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  vertical-align: middle;
-
-  & div {
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-  }
-`;
 
 export default function CardOrderSheet({
     title,
@@ -98,14 +56,14 @@ export default function CardOrderSheet({
     }
 
     return (
-        <Container {...props}>
+        <CardContainer {...props}>
             <div>
-                <Header>
+                <CardHeader>
                     <ReceiptIcon width={14.17} height={15.39} />
                     {title}
-                </Header>
+                </CardHeader>
                 {(subtitle || tableText || locationText) && (
-                    <Description>
+                    <CardDescription $mt="4px">
                         {subtitle && (
                             <div>
                                 {getSubtitleIcon()}
@@ -124,10 +82,10 @@ export default function CardOrderSheet({
                                 {locationText}
                             </div>
                         )}
-                    </Description>
+                    </CardDescription>
                 )}
             </div>
-            <Footer>
+            <CardFooter>
                 <div>
                     <TimerIcon {...DescriptionIconProps} />
                     <MinutesPassed from={createdAt} /> min
@@ -137,7 +95,7 @@ export default function CardOrderSheet({
                     {orderStatus}
                 </div>
                 <div>R${totalPrice}</div>
-            </Footer>
-        </Container>
+            </CardFooter>
+        </CardContainer>
     );
 }
