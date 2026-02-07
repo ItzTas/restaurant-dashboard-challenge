@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 
 const validSlugs = ["ordersheets", "areas"] as const;
-const validSlugsSet = new Set(validSlugs);
 
 export function generateStaticParams() {
     return validSlugs.map((slug) => ({ slug }));
@@ -14,7 +13,7 @@ interface DashboardProps {
 export default async function Dashboard({ params }: DashboardProps) {
     const { slug } = await params;
 
-    if (!validSlugsSet.has(slug)) {
+    if (!validSlugs.includes(slug)) {
         notFound();
     }
 
