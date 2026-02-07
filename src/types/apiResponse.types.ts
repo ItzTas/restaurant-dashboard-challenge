@@ -61,3 +61,36 @@ export enum Activity {
     Empty = "empty",
     Inactive = "inactive",
 }
+
+export interface OrdersheetsResponse {
+    [id: string]: OrderSheet;
+}
+
+export interface OrderSheet {
+    id: number;
+    author: Author;
+    opened: string;
+    contact: string;
+    checkpad: Checkpad;
+    hasOrder: number;
+    idleTime: number;
+    subtotal: number;
+    identifier: string | null;
+    customerName: string;
+    mainIdentifier: string;
+    numberOfCustomers: number;
+}
+
+export interface Author {
+    id: number;
+    name: string;
+    type: string;
+}
+
+export interface Checkpad {
+    id: number;
+    hash: string;
+    model: string;
+    modelIcon: string;
+    identifier: string;
+}
