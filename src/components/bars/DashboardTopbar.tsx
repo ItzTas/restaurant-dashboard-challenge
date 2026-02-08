@@ -1,1 +1,3 @@
-export default function DashboardTopbar() { }
+export default function DashboardTopbar() {
+    return <div></div>;
+}
