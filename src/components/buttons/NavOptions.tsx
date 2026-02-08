@@ -26,12 +26,16 @@ export interface NavOptionsProps {
 
 export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
     const pathname = usePathname();
+
+    const normalizePath = (path?: string) =>
+        path?.startsWith("/") ? path : `/${path}`;
+
     const [currentTab, setCurrentTab] = useState<TabItem | null>(
-        () => tabs.find((tab) => tab.path === pathname) || null,
+        () => tabs.find((tab) => normalizePath(tab.path) === pathname) || null,
     );
 
     function onTabChange(tab: TabItem) {
-        const { path } = tab;
+        const path = normalizePath(tab.path);
         if (!path) return;
 
         setCurrentTab(tab);
@@ -51,10 +55,10 @@ export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
     return (
         <Container>
             {tabs.map((tab) => {
-                const { label, path } = tab;
+                const { label } = tab;
                 return (
                     <NavOptionsTab
-                        key={`${path}-${label}`}
+                        key={`${normalizePath(tab.path)}-${label}`}
                         active={currentTab?.label === label}
                         onClick={() => onClick(tab)}
                     >
