@@ -1,3 +1,5 @@
+import { ApiActivity, Model, ModelIcon } from "@/constants/api";
+
 export interface AreasResponse {
     id: string;
     name: string;
@@ -20,29 +22,11 @@ export interface CheckpadModel {
     name: Model;
 }
 
-export const ModelIcon = {
-    Apartment: "apartment",
-    TableRestaurant: "table-restaurant",
-    Tent: "tent",
-} as const;
-
 export type ModelIcon = (typeof ModelIcon)[keyof typeof ModelIcon];
-
-export const Model = {
-    Apartamento: "Apartamento",
-    Barraca: "Barraca",
-    Mesa: "Mesa",
-} as const;
 
 export type Model = (typeof Model)[keyof typeof Model];
 
-export const Activity = {
-    Active: "active",
-    Empty: "empty",
-    Inactive: "inactive",
-} as const;
-
-export type Activity = (typeof Activity)[keyof typeof Activity];
+export type Activity = (typeof ApiActivity)[keyof typeof ApiActivity];
 
 export interface CheckpadsResponse {
     [key: string]: CheckpadValue;
