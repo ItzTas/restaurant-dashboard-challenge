@@ -1,21 +1,30 @@
+import NavOptions, { TabItem } from "@/components/buttons/NavOptions";
+import { DashboardValidSlugsArray } from "@/constants/dashboard";
 import { notFound } from "next/navigation";
 
-const validSlugs = ["ordersheets", "areas"] as const;
-
 export function generateStaticParams() {
-    return validSlugs.map((slug) => ({ slug }));
+    return DashboardValidSlugsArray.map((slug) => ({ slug }));
 }
 
 interface DashboardProps {
-    params: Promise<{ slug: (typeof validSlugs)[number] }>;
+    params: Promise<{ slug: (typeof DashboardValidSlugsArray)[number] }>;
 }
 
 export default async function Dashboard({ params }: DashboardProps) {
     const { slug } = await params;
 
-    if (!validSlugs.includes(slug)) {
+    if (!DashboardValidSlugsArray.includes(slug)) {
         notFound();
     }
 
-    return <div>Conteúdo da página: {slug}</div>;
+    const tabs: TabItem[] = DashboardValidSlugsArray.map((slug) => ({
+        label: slug,
+        path: `/dashboard/${slug}`,
+    }));
+
+    return (
+        <div>
+            <NavOptions tabs={tabs} />
+        </div>
+    );
 }
