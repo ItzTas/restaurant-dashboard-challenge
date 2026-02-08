@@ -1,6 +1,6 @@
 "use client";
 
-import { SVGProps, useState } from "react";
+import { SVGProps, useState, useRef, useEffect } from "react";
 import ArrowDropDownIcon from "@/components/icons/ArrowDropDownIcon";
 import ArrowDropUpIcon from "../icons/ArrowDropUpIcon";
 import styled from "styled-components";
@@ -44,7 +44,7 @@ const Menu = styled.div`
   min-width: 200px;
   max-width: 300px;
   display: inline-block;
-  position: fixed;
+  position: absolute;
   z-index: 10;
 `;
 
@@ -59,6 +59,7 @@ const Option = styled.button`
   font-size: 15px;
   transition: background-color 0.15s ease;
   font-family: inherit;
+  white-space: nowrap;
 
   &:hover {
     filter: brightness(80%);
@@ -110,13 +111,27 @@ export default function DropdownPrimary({
     const iconProps: SVGProps<SVGSVGElement> = {
         width: "9px",
         height: "9px",
-        style: {
-            marginRight: "2px",
-        },
+        style: { marginRight: "2px" },
     } as const;
 
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState(defaultValue || options[0]?.id);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const handleSelect = (optionId: string) => {
         setSelected(optionId);
@@ -127,7 +142,7 @@ export default function DropdownPrimary({
     const selectedOption = options.find((opt) => opt.id === selected);
 
     return (
-        <DropdownContainer>
+        <DropdownContainer ref={containerRef}>
             <Button onClick={() => setIsOpen(!isOpen)}>
                 <Label>{selectedOption?.label}</Label>
                 <ArrowWrapper>
