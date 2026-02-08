@@ -31,6 +31,7 @@ const TopbarWrapper = styled(DashboardTopbar)`
 
 const MainContent = styled.main`
   @media (min-width: 768px) {
+    margin: 0px 10px 10px 8px;
     grid-column: 2;
     grid-row: 2;
     overflow-y: scroll;
