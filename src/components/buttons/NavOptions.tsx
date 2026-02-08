@@ -21,34 +21,44 @@ export interface TabItem {
 export interface NavOptionsProps {
     tabs: TabItem[];
     handleTabChange?: (tabItem: TabItem) => void;
+    currentTab?: TabItem;
 }
 
-export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
+export default function NavOptions({
+    tabs,
+    handleTabChange,
+    currentTab: propCurrentTab,
+}: NavOptionsProps) {
     const pathname = usePathname();
 
     const normalizePath = (path?: string) =>
         path?.startsWith("/") ? path : `/${path}`;
 
-    const [currentTab, setCurrentTab] = useState<TabItem | null>(
-        () => tabs.find((tab) => normalizePath(tab.path) === pathname) || null,
-    );
+    const [internalTab, setInternalTab] = useState<TabItem | null>(() => {
+        if (propCurrentTab) {
+            return null;
+        }
+        return tabs.find((tab) => normalizePath(tab.path) === pathname) || null;
+    });
 
-    function onTabChange(tab: TabItem) {
+    const currentTab = propCurrentTab ?? internalTab;
+
+    function internalTabChange(tab: TabItem) {
         const path = normalizePath(tab.path);
         if (!path) return;
 
-        setCurrentTab(tab);
+        if (!propCurrentTab) {
+            setInternalTab(tab);
+        }
         redirect(path);
     }
 
     function onClick(tab: TabItem) {
-        if (!handleTabChange) {
-            onTabChange(tab);
-            return;
+        if (handleTabChange) {
+            handleTabChange(tab);
+        } else {
+            internalTabChange(tab);
         }
-
-        handleTabChange(tab);
-        setCurrentTab(tab);
     }
 
     return (
