@@ -1,18 +1,5 @@
-import styled from "styled-components";
 import CardOrderSheet from "./CardOrdersheet";
-
-const Container = styled.div`
-  gap: 12px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 199px);
-  justify-content: center;
-
-  @media (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-`;
+import CardsListContainer from "./CardsListContainer";
 
 interface DashboardCardsListProps {
     slug: string;
@@ -20,7 +7,7 @@ interface DashboardCardsListProps {
 
 export default function DashboardCardsList({ }: DashboardCardsListProps) {
     return (
-        <Container>
+        <CardsListContainer>
             <CardOrderSheet
                 title="Pedido #1024"
                 subtitle={{ value: "(95) 99123-4567", type: "phone" }}
@@ -65,8 +52,6 @@ export default function DashboardCardsList({ }: DashboardCardsListProps) {
                 waiter="Sistema"
                 totalPrice={89.99}
             />
-
-            {/* novos pedidos */}
 
             <CardOrderSheet
                 title="Pedido #1028"
@@ -122,6 +107,6 @@ export default function DashboardCardsList({ }: DashboardCardsListProps) {
                 waiter="Lucas"
                 totalPrice={27.5}
             />
-        </Container>
+        </CardsListContainer>
     );
 }
