@@ -1,23 +1,22 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import styled from "styled-components";
 import NavOptionsTab from "./NavOptionsTab";
 import { useState } from "react";
+import { redirect, usePathname } from "next/navigation";
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   background-color: white;
-  border-radius: 1.25rem;
-  padding: 0.375rem;
-  width: fit-content;
+  border-radius: 20px;
+  padding: 8px;
 `;
 
 export interface TabItem {
     label: string;
-    path: string;
+    path?: string;
 }
 
 export interface NavOptionsProps {
@@ -26,7 +25,28 @@ export interface NavOptionsProps {
 }
 
 export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
-    const [currentTab, setCurrentTab] = useState(tabs[0]);
+    const pathname = usePathname();
+    const [currentTab, setCurrentTab] = useState<TabItem | null>(
+        () => tabs.find((tab) => tab.path === pathname) || null,
+    );
+
+    function onTabChange(tab: TabItem) {
+        const { path } = tab;
+        if (!path) return;
+
+        setCurrentTab(tab);
+        redirect(path);
+    }
+
+    function onClick(tab: TabItem) {
+        if (!handleTabChange) {
+            onTabChange(tab);
+            return;
+        }
+
+        handleTabChange(tab);
+        setCurrentTab(tab);
+    }
 
     return (
         <Container>
@@ -35,11 +55,8 @@ export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
                 return (
                     <NavOptionsTab
                         key={`${path}-${label}`}
-                        active={currentTab.label === label}
-                        onClick={() => {
-                            setCurrentTab(tab);
-                            handleTabChange?.(tab);
-                        }}
+                        active={currentTab?.label === label}
+                        onClick={() => onClick(tab)}
                     >
                         {label}
                     </NavOptionsTab>
