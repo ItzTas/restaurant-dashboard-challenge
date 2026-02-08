@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Footer = styled.div`
+const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
@@ -12,8 +12,4 @@ const Footer = styled.div`
   }
 `;
 
-type Props = React.ComponentProps<typeof Footer>;
-
-export default function CardFooter({ children, ...props }: Props) {
-    return <Footer {...props}>{children}</Footer>;
-}
+export default CardFooter;

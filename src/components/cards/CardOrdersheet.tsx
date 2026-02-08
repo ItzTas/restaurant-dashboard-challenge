@@ -7,7 +7,7 @@ import LocationIcon from "../icons/LocationIcon";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
-import { descriptionIconProps } from "../icons/iconPresets";
+import { descriptionIconProps } from "../../constants/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
 
 export interface OrderCardProps {
@@ -19,7 +19,7 @@ export interface OrderCardProps {
     tableText?: string;
     locationText?: string;
     createdAt: Date;
-    orderStatus: string;
+    waiter: string;
     totalPrice: number;
 }
 
@@ -31,7 +31,7 @@ export default function CardOrderSheet({
     tableText,
     locationText,
     createdAt,
-    orderStatus,
+    waiter,
     totalPrice,
     ...props
 }: OrderCardProps & React.HTMLAttributes<HTMLDivElement>) {
@@ -79,7 +79,7 @@ export default function CardOrderSheet({
 
             <CardSummaryFooter
                 createdAt={createdAt}
-                status={orderStatus}
+                waiter={waiter}
                 price={totalPrice}
             />
         </CardContainer>

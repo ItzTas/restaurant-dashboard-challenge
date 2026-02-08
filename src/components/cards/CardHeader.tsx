@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Header = styled.div`
+const CardHeader = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.25rem;
@@ -10,8 +10,4 @@ const Header = styled.div`
   letter-spacing: -2%;
 `;
 
-type Props = React.ComponentProps<typeof Header>;
-
-export default function CardHeader({ children, ...props }: Props) {
-    return <Header {...props}>{children}</Header>;
-}
+export default CardHeader;

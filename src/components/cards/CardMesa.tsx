@@ -4,7 +4,7 @@ import AvatarIcon from "../icons/AvatarIcon";
 import ReceiptIcon from "../icons/ReceiptIcon";
 import LocationIcon from "../icons/LocationIcon";
 import TableIcon from "../icons/TableIcon";
-import { descriptionIconProps } from "../icons/iconPresets";
+import { descriptionIconProps } from "../../constants/iconPresets";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
@@ -20,7 +20,7 @@ export interface CardMesaProps {
         };
         location: string;
         createdAt: Date;
-        status: string;
+        waiter: string;
         totalPrice: number;
     };
 }
@@ -30,7 +30,7 @@ export default function CardMesa({
     data,
     ...props
 }: CardMesaProps & React.HTMLAttributes<HTMLDivElement>) {
-    const { code, contact, location, createdAt, status, totalPrice } = data ?? {};
+    const { code, contact, location, createdAt, waiter, totalPrice } = data ?? {};
 
     function getContactIcon() {
         const icons: Record<
@@ -71,7 +71,7 @@ export default function CardMesa({
             {data && (
                 <CardSummaryFooter
                     createdAt={createdAt!}
-                    status={status!}
+                    waiter={waiter!}
                     price={totalPrice!}
                 />
             )}

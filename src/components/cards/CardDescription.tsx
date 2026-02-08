@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const Description = styled.div<{ $mt?: string }>`
+const CardDescription = styled.div<{ $mt?: string }>`
   white-space: nowrap;
   gap: 0.125rem;
   display: flex;
@@ -14,8 +13,4 @@ const Description = styled.div<{ $mt?: string }>`
   }
 `;
 
-type Props = React.ComponentProps<typeof Description>;
-
-export default function CardDescription({ children, ...props }: Props) {
-    return <Description {...props}>{children}</Description>;
-}
+export default CardDescription;

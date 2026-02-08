@@ -1,18 +1,18 @@
 import TimerIcon from "../icons/TimerIcon";
-import StatusIcon from "../icons/StatusIcon";
+import RoomServiceIcon from "../icons/RoomServiceIcon";
 import MinutesPassed from "../MinutesPassed";
-import { descriptionIconProps } from "../icons/iconPresets";
+import { descriptionIconProps } from "../../constants/iconPresets";
 import CardFooter from "./CardFooter";
 
 export interface CardSummaryFooterProps {
     createdAt: Date;
-    status: string;
+    waiter: string;
     price: number;
 }
 
 export default function CardSummaryFooter({
     createdAt,
-    status,
+    waiter,
     price,
 }: CardSummaryFooterProps) {
     return (
@@ -22,8 +22,8 @@ export default function CardSummaryFooter({
                 <MinutesPassed from={createdAt} /> min
             </div>
             <div>
-                <StatusIcon {...descriptionIconProps} />
-                {status}
+                <RoomServiceIcon {...descriptionIconProps} />
+                {waiter}
             </div>
             <div>R${price}</div>
         </CardFooter>

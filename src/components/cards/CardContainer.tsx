@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const CardContainer = styled.div`
   height: 150px;
   width: 199px;
   display: flex;
@@ -11,8 +11,4 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 
-type Props = React.ComponentProps<typeof Container>;
-
-export default function CardContainer({ children, ...props }: Props) {
-    return <Container {...props}>{children}</Container>;
-}
+export default CardContainer;
