@@ -1,14 +1,26 @@
 import React from "react";
 import Input from "./Input";
 import SearchIcon from "../icons/SearchIcon";
+import styled from "styled-components";
 
-type SearchInputProps = React.ComponentProps<typeof Input>;
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+`;
 
-export default function SearchInput({ ...props }: SearchInputProps) {
+type SearchInputProps = {
+    inputProps?: React.ComponentProps<typeof Input>;
+    labelProps?: React.ComponentProps<typeof Label>;
+};
+
+export default function SearchInput({
+    inputProps,
+    labelProps,
+}: SearchInputProps) {
     return (
-        <label>
+        <Label {...labelProps}>
             <SearchIcon width={17} height={17} />
-            <Input {...props} />
-        </label>
+            <Input {...inputProps} />
+        </Label>
     );
 }
