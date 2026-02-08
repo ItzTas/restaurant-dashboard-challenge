@@ -15,7 +15,12 @@ const ArrowWrapper = styled.span`
 
 const Label = styled.span`
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Button = styled.button`
@@ -29,7 +34,6 @@ const Button = styled.button`
 const DropdownContainer = styled.div`
   display: inline-block;
   position: relative;
-  width: 16rem; /* w-64 */
 `;
 
 const Menu = styled.div`

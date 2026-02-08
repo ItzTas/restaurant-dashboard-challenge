@@ -9,7 +9,7 @@ const NavOptionsTab = styled.button`
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
 
   &:hover {
     background-color: #f5f5f5;
@@ -18,6 +18,10 @@ const NavOptionsTab = styled.button`
   &[data-active="true"] {
     background-color: #1a1a1a;
     color: white;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.875rem;
   }
 `;
 

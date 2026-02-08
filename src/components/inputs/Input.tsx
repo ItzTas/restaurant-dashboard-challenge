@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 const InputStyle = styled.input<{ height?: string; width?: string }>`
   height: ${(props) => props.height || "24px"};
-  width: ${(props) => props.width || "184px"};
+  width: ${(props) => props.width || "clamp(50px, 15vw, 184px)"};
   background-color: transparent;
   border-radius: 8px;
   outline: none;
-  border: none;
   font-size: 0.8rem;
   line-height: 1.5;
 
