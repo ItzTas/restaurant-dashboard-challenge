@@ -1,4 +1,4 @@
-export default function StatusIcon(props: React.SVGProps<SVGSVGElement>) {
+export default function RoomServiceIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
