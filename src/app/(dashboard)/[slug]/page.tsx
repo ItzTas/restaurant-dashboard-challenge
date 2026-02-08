@@ -19,7 +19,7 @@ export default async function Dashboard({ params }: DashboardProps) {
 
     const tabs: TabItem[] = DashboardValidSlugsArray.map((slug) => ({
         label: slug,
-        path: `/dashboard/${slug}`,
+        path: `${slug}`,
     }));
 
     return (
