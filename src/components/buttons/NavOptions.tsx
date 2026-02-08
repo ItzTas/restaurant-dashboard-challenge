@@ -8,7 +8,7 @@ import { redirect, usePathname } from "next/navigation";
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   background-color: white;
   border-radius: 20px;
   padding: 8px;
