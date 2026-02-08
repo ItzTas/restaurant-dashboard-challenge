@@ -7,7 +7,7 @@ const Sidebar = styled.aside`
   @media (min-width: 768px) {
     display: block;
     width: 80px;
-    height: 100%;
+    height: 100vh;
     background-color: #fa641e;
   }
 `;

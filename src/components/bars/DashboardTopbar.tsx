@@ -1,3 +1,9 @@
+import styled from "styled-components";
+
+const NavContainer = styled.nav`
+  padding: 12px 16px;
+`;
+
 export default function DashboardTopbar() {
-    return <div></div>;
+    return <NavContainer>Topbar</NavContainer>;
 }
