@@ -8,6 +8,13 @@ const Label = styled.label`
   align-items: center;
 `;
 
+const IconWrapper = styled.div`
+  width: 24px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+`;
+
 type SearchInputProps = {
     inputProps?: React.ComponentProps<typeof Input>;
     labelProps?: React.ComponentProps<typeof Label>;
@@ -19,7 +26,9 @@ export default function SearchInput({
 }: SearchInputProps) {
     return (
         <Label {...labelProps}>
-            <SearchIcon width={17} height={17} />
+            <IconWrapper>
+                <SearchIcon width={17} height={17} />
+            </IconWrapper>
             <Input {...inputProps} />
         </Label>
     );
