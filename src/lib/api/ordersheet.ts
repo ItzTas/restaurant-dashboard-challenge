@@ -1,5 +1,5 @@
 import { OrdersheetsResponse } from "@/types/apiResponse.types";
-import { apiUrl } from "../../../constants";
+import { apiUrl } from "../../constants/api";
 
 export async function fetchAllOrdersheet(): Promise<OrdersheetsResponse> {
     const res = await fetch(`${apiUrl}/ordersheet`);
