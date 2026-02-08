@@ -10,6 +10,7 @@ const InputStyle = styled.input<{ height?: string; width?: string }>`
   border: none;
   font-size: 0.8rem;
   line-height: 1.5;
+  border-bottom: 1px solid #ccc;
 
   @media (min-width: 768px) {
     font-size: 1rem;
