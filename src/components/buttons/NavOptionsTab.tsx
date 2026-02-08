@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const NavOptionsTab = styled.button<{ active: boolean }>`
-  background-color: ${(props) => (props.active ? "#1a1a1a" : "transparent")};
-  color: ${(props) => (props.active ? "white" : "#1a1a1a")};
+const NavOptionsTab = styled.button`
+  background-color: transparent;
+  color: #1a1a1a;
   border: none;
   border-radius: 1rem;
   padding: 0.625rem 1.5rem;
@@ -12,7 +12,12 @@ const NavOptionsTab = styled.button<{ active: boolean }>`
   font-size: 0.875rem;
 
   &:hover {
-    background-color: ${(props) => (props.active ? "#1a1a1a" : "#f5f5f5")};
+    background-color: #f5f5f5;
+  }
+
+  &[data-active="true"] {
+    background-color: #1a1a1a;
+    color: white;
   }
 `;
 

@@ -11,7 +11,6 @@ const Container = styled.div`
   gap: 2px;
   background-color: white;
   border-radius: 20px;
-  padding: 8px;
 `;
 
 export interface TabItem {
@@ -59,7 +58,7 @@ export default function NavOptions({ tabs, handleTabChange }: NavOptionsProps) {
                 return (
                     <NavOptionsTab
                         key={`${normalizePath(tab.path)}-${label}`}
-                        active={currentTab?.label === label}
+                        data-active={currentTab?.label === label ? "true" : "false"}
                         onClick={() => onClick(tab)}
                     >
                         {label}
