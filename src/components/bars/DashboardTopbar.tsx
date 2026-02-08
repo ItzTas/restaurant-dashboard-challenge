@@ -16,7 +16,12 @@ const NavContainer = styled.nav`
 `;
 
 const RightContainer = styled.div`
+  gap: 4px;
   display: flex;
+
+  @media (min-width: 768px) {
+    gap: 8px;
+  }
 `;
 
 export default function DashboardTopbar() {
