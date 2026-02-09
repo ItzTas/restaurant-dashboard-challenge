@@ -1,4 +1,4 @@
-import { CardMesaProps } from "./CardMesa";
+import { CardMesaProps } from "../cards/CardMesa";
 
 export interface CardMesaListProps {
     cards: CardMesaProps[];
