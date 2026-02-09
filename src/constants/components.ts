@@ -1,1 +1,1 @@
-export const CardContainerHight = 150 as const;
+export const CardContainerHeight = 150 as const;
