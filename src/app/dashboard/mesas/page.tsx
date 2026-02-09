@@ -52,7 +52,7 @@ async function getMesas(): Promise<CardMesaProps[]> {
         (item) => {
             const tableNumber = Number(item.identifier);
 
-            return {
+            const table: CardMesaProps = {
                 tableNumber,
 
                 data: item.hasOrder
@@ -76,6 +76,8 @@ async function getMesas(): Promise<CardMesaProps[]> {
                     }
                     : undefined,
             };
+
+            return table;
         },
     );
 
