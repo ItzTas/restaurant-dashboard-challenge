@@ -3,6 +3,7 @@ import SearchInput from "../inputs/SearchInput";
 import NavOptions, { TabItem } from "../buttons/NavOptions";
 import { DashboardSlugsArray } from "@/constants/dashboard";
 import DropdownPrimary from "../dropdowns/DropdownPrimary";
+import { capitalize } from "@/utils/string";
 
 const NavContainer = styled.nav`
   padding: 12px 16px;
@@ -26,7 +27,7 @@ const RightContainer = styled.div`
 
 export default function DashboardTopbar() {
     const tabs: TabItem[] = DashboardSlugsArray.map((slug) => ({
-        label: slug,
+        label: capitalize(slug),
         path: `dashboard/${slug}`,
     }));
 
