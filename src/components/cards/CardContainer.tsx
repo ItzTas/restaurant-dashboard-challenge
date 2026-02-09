@@ -1,7 +1,8 @@
+import { CardContainerHeight } from "@/constants/components";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
-  height: 150px;
+  height: ${CardContainerHeight}px;
   width: 199px;
   display: flex;
   justify-content: space-between;
