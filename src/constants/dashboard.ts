@@ -1,8 +1,8 @@
-export const DashboardValidSlugs = {
+export const DashboardSlugsObj = {
     Ordersheets: "ordersheets",
     Areas: "areas",
 } as const;
 
-export const DashboardValidSlugsArray = Object.freeze(
-    Object.values(DashboardValidSlugs),
-) as readonly (typeof DashboardValidSlugs)[keyof typeof DashboardValidSlugs][];
+export const DashboardSlugsArray = Object.freeze(
+    Object.values(DashboardSlugsObj),
+) as readonly (typeof DashboardSlugsObj)[keyof typeof DashboardSlugsObj][];
