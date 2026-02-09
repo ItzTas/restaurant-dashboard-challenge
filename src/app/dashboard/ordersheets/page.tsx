@@ -33,7 +33,7 @@ function generateOrders(count: number): CardOrdersheetProps[] {
 }
 
 export default async function Dashboard() {
-    const sampleCards = generateOrders(10000); // muda pra 1000 se quiser explodir
+    const sampleCards = generateOrders(10000);
 
     return <CardOrdersheetList cards={sampleCards} />;
 }
