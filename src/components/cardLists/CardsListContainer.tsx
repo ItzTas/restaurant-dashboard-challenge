@@ -5,6 +5,7 @@ const CardsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 199px);
   justify-content: center;
+  height: 600px;
 
   @media (min-width: 768px) {
     display: flex;
