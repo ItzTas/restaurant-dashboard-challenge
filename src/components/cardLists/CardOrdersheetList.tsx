@@ -1,36 +1,18 @@
-import CardsListContainer from "./CardsListContainer";
-import CardOrdersheet, { CardOrdersheetProps } from "../cards/CardOrdersheet";
-import CardsListWindow from "./CardsListWindow";
+"use client";
 
-import { RowComponentProps } from "react-window";
-import { CardContainerHeight } from "@/constants/components";
+import CardOrdersheet from "../cards/CardOrdersheet";
+import { CardOrdersheetProps } from "../cards/CardOrdersheet";
+import CardsGridList from "./CardsGridList";
 
-interface RowProps {
+interface Props {
     cards: CardOrdersheetProps[];
 }
 
-function CardRow({ index, style, cards }: RowComponentProps<RowProps>) {
-    const card = cards[index];
-
+export default function CardOrdersheetList({ cards }: Props) {
     return (
-        <div style={style}>
-            <CardOrdersheet {...card} />
-        </div>
-    );
-}
-
-export interface CardOrdersheetListProps {
-    cards: CardOrdersheetProps[];
-}
-
-export default function CardOrdersheetLits({ cards }: CardOrdersheetListProps) {
-    return (
-        <CardsListContainer>
-            <CardsListWindow
-                Row={CardRow}
-                cards={cards}
-                rowHeight={CardContainerHeight}
-            />
-        </CardsListContainer>
+        <CardsGridList
+            data={cards}
+            itemContent={(_, card) => <CardOrdersheet {...card} />}
+        />
     );
 }
