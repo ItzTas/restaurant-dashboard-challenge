@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchInput from "../inputs/SearchInput";
 import NavOptions, { TabItem } from "../buttons/NavOptions";
-import { DashboardValidSlugsArray } from "@/constants/dashboard";
+import { DashboardSlugsArray } from "@/constants/dashboard";
 import DropdownPrimary from "../dropdowns/DropdownPrimary";
 
 const NavContainer = styled.nav`
@@ -20,14 +20,14 @@ const RightContainer = styled.div`
   display: flex;
 
   @media (min-width: 768px) {
-    gap: 8px;
+    gap: 10px;
   }
 `;
 
 export default function DashboardTopbar() {
-    const tabs: TabItem[] = DashboardValidSlugsArray.map((slug) => ({
+    const tabs: TabItem[] = DashboardSlugsArray.map((slug) => ({
         label: slug,
-        path: `${slug}`,
+        path: `dashboard/${slug}`,
     }));
 
     const areas = [
