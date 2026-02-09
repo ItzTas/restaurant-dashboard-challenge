@@ -10,7 +10,7 @@ import CardDescription from "./CardDescription";
 import { descriptionIconProps } from "../../constants/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
 
-export interface OrderCardProps {
+export interface CardOrdersheetProps {
     title: string;
     subtitle?: {
         value: string;
@@ -23,9 +23,9 @@ export interface OrderCardProps {
     totalPrice: number;
 }
 
-type SubtitleType = NonNullable<OrderCardProps["subtitle"]>["type"];
+type SubtitleType = NonNullable<CardOrdersheetProps["subtitle"]>["type"];
 
-export default function CardOrderSheet({
+export default function CardOrdersheet({
     title,
     subtitle,
     tableText,
@@ -34,7 +34,7 @@ export default function CardOrderSheet({
     waiter,
     totalPrice,
     ...props
-}: OrderCardProps & React.HTMLAttributes<HTMLDivElement>) {
+}: CardOrdersheetProps & React.HTMLAttributes<HTMLDivElement>) {
     function getSubtitleIcon() {
         const icons: Record<SubtitleType, JSX.Element> = {
             phone: <CallIcon />,
