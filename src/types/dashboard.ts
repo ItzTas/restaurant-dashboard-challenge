@@ -1,3 +1,4 @@
-import { DashboardValidSlugs } from "@/constants/dashboard";
+import { DashboardSlugsObj } from "@/constants/dashboard";
 
-export type DashboardSlug = (typeof DashboardValidSlugs)[number];
+export type DashboardSlug =
+    (typeof DashboardSlugsObj)[keyof typeof DashboardSlugsObj];
