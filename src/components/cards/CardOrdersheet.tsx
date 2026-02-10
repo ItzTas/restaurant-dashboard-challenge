@@ -7,7 +7,10 @@ import LocationIcon from "../icons/LocationIcon";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
-import { descriptionIconProps, headerIconProps } from "../../constants/iconPresets";
+import {
+    descriptionIconProps,
+    headerIconProps,
+} from "../../constants/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
 
@@ -35,7 +38,7 @@ export default function CardOrdersheet({
     waiter,
     totalPrice,
     ...props
-}: CardOrdersheetProps & React.HTMLAttributes<HTMLDivElement>) {
+}: CardOrdersheetProps & React.ComponentProps<typeof CardContainer>) {
     function getSubtitleIcon() {
         const icons: Record<SubtitleType, JSX.Element> = {
             phone: <CallIcon />,
@@ -50,7 +53,7 @@ export default function CardOrdersheet({
         <CardContainer {...props}>
             <div>
                 <CardHeader>
-                    <ReceiptIcon {...headerIconProps}/>
+                    <ReceiptIcon {...headerIconProps} />
                     {title}
                 </CardHeader>
 

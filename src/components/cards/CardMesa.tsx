@@ -30,9 +30,15 @@ export default function CardMesa({
     identifier,
     data,
     ...props
-}: CardMesaProps & React.HTMLAttributes<HTMLDivElement>) {
-    const { customer, location, lastOrderCreated, waiter, totalPrice } =
-        data ?? {};
+}: CardMesaProps & React.ComponentProps<typeof CardContainer>) {
+    const {
+        customer,
+        location,
+        lastOrderCreated,
+        ordersheetsNum,
+        waiter,
+        totalPrice,
+    } = data ?? {};
 
     return (
         <CardContainer {...props}>
@@ -45,6 +51,7 @@ export default function CardMesa({
                     <CardDescription $mt="4px">
                         <CardDescriptionRow>
                             <ReceiptIcon {...descriptionIconProps} />
+                            <span>{ordersheetsNum}</span>
                         </CardDescriptionRow>
                         <CardDescriptionRow>
                             <AvatarIcon {...descriptionIconProps} />
