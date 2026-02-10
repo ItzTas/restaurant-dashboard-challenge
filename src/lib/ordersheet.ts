@@ -3,10 +3,8 @@ import {
     CardOrdersheetProps,
 } from "@/components/cards/CardOrdersheet";
 import { getAllOrdersheet } from "./api/ordersheet";
-import { CheckpadModel, OrdersheetValue } from "@/types/api.types";
-import { getAreaFromOrdersheet } from "./api/areas";
-import { Mode } from "fs";
-import { Model } from "@/types/model";
+import { OrdersheetValue } from "@/types/api";
+import { Model } from "@/types/cards";
 
 function getOrderIdentifier(val: OrdersheetValue): string {
     const priorities: (keyof OrdersheetValue)[] = [
