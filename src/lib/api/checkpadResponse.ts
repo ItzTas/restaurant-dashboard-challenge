@@ -1,4 +1,4 @@
-import { CheckpadsResponse } from "@/types/api.types";
+import { CheckpadsResponse } from "@/types/api";
 import { apiUrl } from "../../constants/api";
 
 export async function getAllCheckpads(): Promise<CheckpadsResponse> {

@@ -1,4 +1,4 @@
-import { AreaValue } from "@/types/api.types";
+import { AreaValue } from "@/types/api";
 import { apiUrl } from "../../constants/api";
 
 export async function getAllAreas(): Promise<AreaValue[]> {
