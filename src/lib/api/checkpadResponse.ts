@@ -1,4 +1,4 @@
-import { CheckpadsResponse } from "@/types/api";
+import { CheckpadsResponse, CheckpadValue } from "@/types/api";
 import { apiUrl } from "../../constants/api";
 
 export async function getAllCheckpads(): Promise<CheckpadsResponse> {
@@ -9,10 +9,14 @@ export async function getAllCheckpads(): Promise<CheckpadsResponse> {
     return res.json();
 }
 
-export async function getCheckpadById(id: string | number) {
-    const res = await fetch(`${apiUrl}/checkpadResponse/${id}`);
-    if (!res.ok) {
-        throw new Error("Failed to fetch");
+export async function getCheckpadById(
+    id: string | number,
+): Promise<CheckpadValue | null> {
+    const checkpads = await getAllCheckpads();
+    for (const checkpad of Object.values(checkpads)) {
+        if (checkpad.id === id) {
+            return checkpad;
+        }
     }
-    return res.json();
+    return null;
 }
