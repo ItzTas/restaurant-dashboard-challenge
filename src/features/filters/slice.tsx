@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export type Filters = {
-    status?: string;
-    waiter?: string;
-    filterQuery: string;
-};
+import { Filters } from "./types";
 
 const initialState: Filters = {
     status: undefined,
@@ -16,16 +11,16 @@ const filtersSlice = createSlice({
     name: "filters",
     initialState,
     reducers: {
+        setFilterQuery(state, action: PayloadAction<string>) {
+            state.filterQuery = action.payload;
+        },
+
         setStatus(state, action: PayloadAction<string | undefined>) {
             state.status = action.payload;
         },
 
         setWaiter(state, action: PayloadAction<string | undefined>) {
             state.waiter = action.payload;
-        },
-
-        setFilterQuery(state, action: PayloadAction<string>) {
-            state.filterQuery = action.payload;
         },
 
         resetFilters() {
