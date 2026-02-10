@@ -662,7 +662,7 @@
       "idleTime": 475,
       "subtotal": 4300,
       "identifier": "Gui",
-      "customerName": "Amara",
+      "customerName": "",
       "mainIdentifier": "Gui",
       "numberOfCustomers": 1
     },
@@ -686,7 +686,7 @@
       "idleTime": 1441,
       "subtotal": 2300,
       "identifier": null,
-      "customerName": "Lora",
+      "customerName": "Dexter",
       "mainIdentifier": "16937",
       "numberOfCustomers": 1
     },
@@ -710,7 +710,7 @@
       "idleTime": 81,
       "subtotal": 3300,
       "identifier": "Guigui",
-      "customerName": "Lorene",
+      "customerName": "Felix",
       "mainIdentifier": "Guigui",
       "numberOfCustomers": 1
     },
@@ -746,7 +746,7 @@
       "idleTime": 1432,
       "subtotal": 1000,
       "identifier": "Gfui",
-      "customerName": "Joanna",
+      "customerName": "",
       "mainIdentifier": "Gfui",
       "numberOfCustomers": 1
     },
@@ -770,7 +770,7 @@
       "idleTime": 1429,
       "subtotal": 1100,
       "identifier": "Abc",
-      "customerName": "Bria",
+      "customerName": "Molly",
       "mainIdentifier": "Abc",
       "numberOfCustomers": 1
     },
@@ -794,7 +794,7 @@
       "idleTime": 1424,
       "subtotal": 1100,
       "identifier": null,
-      "customerName": "Max",
+      "customerName": "",
       "mainIdentifier": "16946",
       "numberOfCustomers": 1
     },
@@ -818,7 +818,7 @@
       "idleTime": 1418,
       "subtotal": 1100,
       "identifier": null,
-      "customerName": "Minerva",
+      "customerName": "Amanda",
       "mainIdentifier": "16949",
       "numberOfCustomers": 1
     },
@@ -842,7 +842,7 @@
       "idleTime": 1415,
       "subtotal": 1600,
       "identifier": "3445",
-      "customerName": "Marietta",
+      "customerName": "Misty",
       "mainIdentifier": "3445",
       "numberOfCustomers": 1
     },
@@ -866,7 +866,7 @@
       "idleTime": 1412,
       "subtotal": 600,
       "identifier": "12457",
-      "customerName": "Eric",
+      "customerName": "Daniella",
       "mainIdentifier": "12457",
       "numberOfCustomers": 1
     },
@@ -890,7 +890,7 @@
       "idleTime": 1393,
       "subtotal": 2400,
       "identifier": null,
-      "customerName": "Harmony",
+      "customerName": "",
       "mainIdentifier": "16962",
       "numberOfCustomers": 1
     },
@@ -914,7 +914,7 @@
       "idleTime": 1391,
       "subtotal": 1000,
       "identifier": "Aaaa",
-      "customerName": "Garry",
+      "customerName": "",
       "mainIdentifier": "Aaaa",
       "numberOfCustomers": 1
     },
@@ -938,7 +938,7 @@
       "idleTime": 490,
       "subtotal": 2900,
       "identifier": "Aaaaa",
-      "customerName": "Jevon",
+      "customerName": "",
       "mainIdentifier": "Aaaaa",
       "numberOfCustomers": 1
     },
@@ -962,7 +962,7 @@
       "idleTime": 486,
       "subtotal": 1000,
       "identifier": "Cccc",
-      "customerName": "Vernice",
+      "customerName": "Lacy",
       "mainIdentifier": "Cccc",
       "numberOfCustomers": 1
     },
@@ -986,7 +986,7 @@
       "idleTime": 484,
       "subtotal": 1100,
       "identifier": "Dddd",
-      "customerName": "Robin",
+      "customerName": "",
       "mainIdentifier": "Dddd",
       "numberOfCustomers": 1
     },
@@ -1010,7 +1010,7 @@
       "idleTime": 478,
       "subtotal": 1100,
       "identifier": "Qwerty",
-      "customerName": "Shawna",
+      "customerName": "",
       "mainIdentifier": "Qwerty",
       "numberOfCustomers": 1
     },
@@ -1028,7 +1028,7 @@
       "idleTime": 352,
       "subtotal": 1100,
       "identifier": "Qqq",
-      "customerName": "Kolby",
+      "customerName": "",
       "mainIdentifier": "Qqq",
       "numberOfCustomers": 1
     },
@@ -1046,7 +1046,7 @@
       "idleTime": 332,
       "subtotal": 1201,
       "identifier": null,
-      "customerName": "Myron",
+      "customerName": "",
       "mainIdentifier": "17030",
       "numberOfCustomers": 1
     },
@@ -1070,7 +1070,7 @@
       "idleTime": 76,
       "subtotal": 4600,
       "identifier": null,
-      "customerName": "Connie",
+      "customerName": "Alexandrea",
       "mainIdentifier": "17040",
       "numberOfCustomers": 1
     },
@@ -1094,7 +1094,7 @@
       "idleTime": 3,
       "subtotal": 1000,
       "identifier": "12223",
-      "customerName": "Marta",
+      "customerName": "",
       "mainIdentifier": "12223",
       "numberOfCustomers": 1
     }
