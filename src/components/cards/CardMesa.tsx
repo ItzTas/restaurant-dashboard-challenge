@@ -72,6 +72,8 @@ export default function CardMesa({
         return React.cloneElement(icons[iconStr], descriptionIconProps);
     }
 
+    const waiter = waiterFullName ? getInitials(waiterFullName) : "--";
+
     return (
         <CardContainer {...props}>
             <div>
@@ -99,7 +101,7 @@ export default function CardMesa({
             {data && (
                 <CardSummaryFooter
                     from={lastOrderCreated!}
-                    waiter={getInitials(waiterFullName!)}
+                    waiter={waiter}
                     price={totalPrice!}
                 />
             )}
