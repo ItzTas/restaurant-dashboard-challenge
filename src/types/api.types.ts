@@ -1,4 +1,8 @@
-import { ApiActivity, CheckpadModel, CheckpadModelIcon } from "@/constants/api";
+import {
+    ApiActivity,
+    CheckpadModel,
+    CheckpadModelIcon,
+} from "@/constants/api";
 
 export interface AreasResponse {
     id: string;
@@ -25,7 +29,8 @@ export interface CheckpadModelValue {
 export type CheckpadModelIcon =
     (typeof CheckpadModelIcon)[keyof typeof CheckpadModelIcon];
 
-export type CheckpadModel = (typeof CheckpadModel)[keyof typeof CheckpadModel];
+export type CheckpadModel =
+    (typeof CheckpadModel)[keyof typeof CheckpadModel];
 
 export type Activity = (typeof ApiActivity)[keyof typeof ApiActivity];
 
