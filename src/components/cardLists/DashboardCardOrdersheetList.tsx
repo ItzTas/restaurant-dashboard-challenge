@@ -13,7 +13,7 @@ export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
     const filterQuery = useFilterQuery().toLowerCase();
 
     const filteredCards = cards.filter((card) => {
-        const searchables = [
+        const values = [
             card.identifier,
             card.contact?.value,
             card.waiterFullName,
@@ -21,7 +21,7 @@ export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
             card.model?.value,
         ];
 
-        return searchables
+        return values
             .filter(Boolean)
             .some((text) => text!.toLowerCase().includes(filterQuery));
     });
