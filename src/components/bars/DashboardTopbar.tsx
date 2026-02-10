@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchInput from "../inputs/SearchInput";
+import SearchInput from "../inputs/FilterInput";
 import NavOptions, { TabItem } from "../buttons/NavOptions";
 import { DashboardSlugsArray } from "@/constants/dashboard";
 import DropdownPrimary from "../dropdowns/DropdownPrimary";
