@@ -3,7 +3,7 @@ import { getAllCheckpads } from "@/lib/api/checkpadResponse";
 import { CheckpadValue } from "@/types/api.types";
 import { getOrdersheetsRecordByIds } from "./api/ordersheet";
 
-async function CheckpadToMesaProps(
+async function checkpadToProps(
     checkpadValue: CheckpadValue,
 ): Promise<CardMesaProps> {
     const { identifier } = checkpadValue;
@@ -74,10 +74,10 @@ async function CheckpadToMesaProps(
 }
 
 export async function getDashboardMesas(): Promise<CardMesaProps[]> {
-    const checkpadResponse = await getAllCheckpads();
+    const res = await getAllCheckpads();
 
-    const promises = Object.values(checkpadResponse.checkpads).map(
-        CheckpadToMesaProps,
+    const promises = Object.values(res.checkpads).map(
+        checkpadToProps,
     );
 
     return Promise.all(promises);
