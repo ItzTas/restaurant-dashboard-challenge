@@ -13,15 +13,15 @@ export default function CardMesaList({ cards }: CardMesaListProps) {
     const filterQuery = useFilterQuery().toLowerCase();
 
     const filteredCards = cards.filter((card) => {
-        const identifier = card.identifier.toLowerCase();
-        const customerName = card.data?.customer.value.toLowerCase() ?? "";
-        const waiterName = card.data?.waiterFullName.toLowerCase() ?? "";
+        const values = [
+            card.identifier,
+            card.data?.customer.value,
+            card.data?.waiterFullName,
+        ];
 
-        return (
-            identifier.includes(filterQuery) ||
-            customerName.includes(filterQuery) ||
-            waiterName.includes(filterQuery)
-        );
+        return values
+            .filter(Boolean)
+            .some((text) => text!.toLowerCase().includes(filterQuery));
     });
 
     return (
