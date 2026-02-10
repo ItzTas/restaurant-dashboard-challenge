@@ -22,7 +22,7 @@ export interface CardOrdersheetProps {
     };
     tableText?: string;
     locationText?: string;
-    createdAt: Date;
+    idleTime: number;
     waiter: string;
     totalPrice: number;
 }
@@ -34,7 +34,7 @@ export default function CardOrdersheet({
     subtitle,
     tableText,
     locationText,
-    createdAt,
+    idleTime,
     waiter,
     totalPrice,
     ...props
@@ -82,7 +82,7 @@ export default function CardOrdersheet({
             </div>
 
             <CardSummaryFooter
-                createdAt={createdAt}
+                idleTime={idleTime}
                 waiter={waiter}
                 price={totalPrice}
             />

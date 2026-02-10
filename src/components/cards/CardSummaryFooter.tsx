@@ -1,18 +1,21 @@
 import TimerIcon from "../icons/TimerIcon";
 import RoomServiceIcon from "../icons/RoomServiceIcon";
-import TimePassed from "../TimePassed";
+import TimePassed from "../time/TimePassed";
+import MinutesPassed from "../time/MinutesPassed";
 import { descriptionIconProps } from "../../constants/iconPresets";
 import CardFooter from "./CardFooter";
 import CardFooterColumn from "./CardFooterColumn";
 
 export interface CardSummaryFooterProps {
-    createdAt: Date;
+    from?: Date;
+    idleTime?: number;
     waiter: string;
     price: number;
 }
 
 export default function CardSummaryFooter({
-    createdAt,
+    from,
+    idleTime,
     waiter,
     price,
 }: CardSummaryFooterProps) {
@@ -21,7 +24,13 @@ export default function CardSummaryFooter({
             <CardFooterColumn>
                 <TimerIcon {...descriptionIconProps} />
                 <span>
-                    <TimePassed from={createdAt} />
+                    {idleTime !== undefined ? (
+                        <MinutesPassed idleTime={idleTime} />
+                    ) : from ? (
+                        <TimePassed from={from} />
+                    ) : (
+                        "--"
+                    )}
                 </span>
             </CardFooterColumn>
             <CardFooterColumn>
