@@ -1,6 +1,12 @@
-import { CardOrdersheetProps } from "@/components/cards/CardOrdersheet";
+import {
+    CardOrdersheetContact,
+    CardOrdersheetProps,
+} from "@/components/cards/CardOrdersheet";
 import { getAllOrdersheet } from "./api/ordersheet";
-import { OrdersheetValue } from "@/types/api.types";
+import { CheckpadModel, OrdersheetValue } from "@/types/api.types";
+import { getAreaFromOrdersheet } from "./api/areas";
+import { Mode } from "fs";
+import { Model } from "@/types/model";
 
 function getOrderIdentifier(val: OrdersheetValue): string {
     const priorities: (keyof OrdersheetValue)[] = [
@@ -25,11 +31,40 @@ export async function orderSheetToProps(
 ): Promise<CardOrdersheetProps> {
     const identifier = getOrderIdentifier(val);
 
+    let model: Model | undefined;
+
+    if (val.checkpad && val.checkpad.model && val.checkpad.modelIcon) {
+        model = {
+            value: val.checkpad.model,
+            icon: val.checkpad.modelIcon,
+        };
+    }
+
+    let contact: CardOrdersheetContact | undefined;
+    if (val.contact) {
+        contact = {
+            value: val.contact,
+            type: "phone",
+        };
+    } else if (val.customerName) {
+        contact = {
+            value: val.customerName,
+            type: "customer",
+        };
+    }
+
+    const tableText =
+        val.checkpad?.identifier && `Mesa ${val.checkpad.identifier}`;
+
     return {
+        contact: contact,
         identifier,
         idleTime: val.idleTime,
         totalPrice: val.subtotal,
         waiterFullName: val.author.name,
+        model,
+        customersNum: val.numberOfCustomers,
+        tableText: tableText,
     };
 }
 
@@ -37,7 +72,6 @@ export async function getDashboardOrdersheets(): Promise<
     CardOrdersheetProps[]
 > {
     const res = await getAllOrdersheet();
-    console.log(res);
 
     const promises = Object.values(res).map(orderSheetToProps);
 
