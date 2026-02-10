@@ -3,21 +3,17 @@ import { getAllCheckpads } from "@/lib/api/checkpadResponse";
 import { CheckpadValue } from "@/types/api.types";
 import { getOrdersheetsRecordByIds } from "./api/ordersheet";
 
-async function checkpadToProps(
-    checkpadValue: CheckpadValue,
-): Promise<CardMesaProps> {
-    const { identifier } = checkpadValue;
+async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
+    const { identifier } = val;
 
-    if (!checkpadValue.hasOrder || checkpadValue.orderSheetIds.length === 0) {
+    if (!val.hasOrder || val.orderSheetIds.length === 0) {
         return {
             identifier,
             data: undefined,
         };
     }
 
-    const ordersheets = await getOrdersheetsRecordByIds(
-        checkpadValue.orderSheetIds,
-    );
+    const ordersheets = await getOrdersheetsRecordByIds(val.orderSheetIds);
 
     const ordersheetsArray = Object.values(ordersheets);
 
@@ -63,11 +59,11 @@ async function checkpadToProps(
                 value: customer!,
                 isRealName,
             },
-            lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
-            waiterFullName: checkpadValue.authorName!,
+            lastOrderCreated: new Date(val.lastOrderCreated!),
+            waiterFullName: val.authorName!,
             model: {
-                value: checkpadValue.model,
-                icon: checkpadValue.modelIcon,
+                value: val.model,
+                icon: val.modelIcon,
             },
         },
     };
@@ -76,9 +72,7 @@ async function checkpadToProps(
 export async function getDashboardMesas(): Promise<CardMesaProps[]> {
     const res = await getAllCheckpads();
 
-    const promises = Object.values(res.checkpads).map(
-        checkpadToProps,
-    );
+    const promises = Object.values(res.checkpads).map(checkpadToProps);
 
     return Promise.all(promises);
 }
