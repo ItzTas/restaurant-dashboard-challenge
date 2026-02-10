@@ -15,6 +15,7 @@ import IdBadgeIcon from "../icons/IdBadgeIcon";
 import React from "react";
 import CheckpadIcon from "../icons/CheckpadIcon";
 import { Model } from "@/types/cards";
+import { ApiActivity } from "@/types/api";
 
 export interface CardMesaCustumerData {
     value: string;
@@ -33,6 +34,7 @@ export interface CardMesaPropsData {
 export interface CardMesaProps {
     identifier: string;
     data?: CardMesaPropsData;
+    activity: ApiActivity;
 }
 
 export default function CardMesa({

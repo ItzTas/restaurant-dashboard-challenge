@@ -16,6 +16,7 @@ import { getInitials } from "@/utils/string";
 import CustomersIcon from "../icons/CustomersIcon";
 import { Model } from "@/types/cards";
 import CheckpadIcon from "../icons/CheckpadIcon";
+import { ApiActivity } from "@/types/api";
 
 export interface CardOrdersheetContact {
     value: string;
@@ -31,6 +32,7 @@ export interface CardOrdersheetProps {
     idleTime: number;
     waiterFullName: string;
     totalPrice: number;
+    activity: ApiActivity;
 }
 
 type SubtitleType = NonNullable<CardOrdersheetProps["contact"]>["type"];

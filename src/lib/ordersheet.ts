@@ -3,8 +3,9 @@ import {
     CardOrdersheetProps,
 } from "@/components/cards/CardOrdersheet";
 import { getAllOrdersheet } from "./api/ordersheet";
-import { OrdersheetValue } from "@/types/api";
+import { ApiActivity, CheckpadValue, OrdersheetValue } from "@/types/api";
 import { Model } from "@/types/cards";
+import { getCheckpadById } from "./api/checkpadResponse";
 
 function getOrderIdentifier(val: OrdersheetValue): string {
     const priorities: (keyof OrdersheetValue)[] = [
@@ -30,7 +31,6 @@ export async function orderSheetToProps(
     const identifier = getOrderIdentifier(val);
 
     let model: Model | undefined;
-
     if (val.checkpad && val.checkpad.model && val.checkpad.modelIcon) {
         model = {
             value: val.checkpad.model,
@@ -51,11 +51,27 @@ export async function orderSheetToProps(
         };
     }
 
+    let checkpad: CheckpadValue | null;
+    if (val.checkpad?.id) {
+        checkpad = await getCheckpadById(val.checkpad.id);
+    } else {
+        checkpad = null;
+    }
+
+    let activity: ApiActivity;
+
+    if (!checkpad) {
+        activity = "inactive";
+    } else {
+        activity = checkpad.activity;
+    }
+
     const tableText =
         val.checkpad?.identifier && `Mesa ${val.checkpad.identifier}`;
 
     return {
-        contact: contact,
+        activity,
+        contact,
         identifier,
         idleTime: val.idleTime,
         totalPrice: val.subtotal,

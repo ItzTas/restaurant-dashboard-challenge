@@ -2,6 +2,7 @@ import { CardMesaProps } from "@/components/cards/CardMesa";
 import { getAllCheckpads } from "@/lib/api/checkpadResponse";
 import { CheckpadValue } from "@/types/api";
 import { getOrdersheetsRecordByIds } from "./api/ordersheet";
+import { ApiActivity } from "@/constants/api";
 
 async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
     const { identifier } = val;
@@ -10,6 +11,7 @@ async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
         return {
             identifier,
             data: undefined,
+            activity: ApiActivity.Empty,
         };
     }
 
@@ -52,6 +54,7 @@ async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
 
     return {
         identifier,
+        activity: val.activity,
         data: {
             ordersheetsNum: ordersheetsArray.length,
             totalPrice,
