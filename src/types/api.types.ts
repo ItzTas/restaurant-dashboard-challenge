@@ -1,4 +1,4 @@
-import { ApiActivity, Model, ModelIcon } from "@/constants/api";
+import { ApiActivity, CheckpadModel, CheckpadModelIcon } from "@/constants/api";
 
 export interface AreasResponse {
     id: string;
@@ -8,7 +8,7 @@ export interface AreasResponse {
     maxIdleTime: number;
     serviceModel: string;
     operationType: string;
-    checkpadModels: CheckpadModel[];
+    checkpadModels: CheckpadModelValue[];
     checkpadQuantity: number;
     sheetLabelPlural: string;
     maxIdleTimeEnabled: number;
@@ -16,15 +16,16 @@ export interface AreasResponse {
     defaultVizualizationList: string;
 }
 
-export interface CheckpadModel {
+export interface CheckpadModelValue {
     id: number;
-    icon: ModelIcon;
-    name: Model;
+    icon: CheckpadModelIcon;
+    name: CheckpadModel;
 }
 
-export type ModelIcon = (typeof ModelIcon)[keyof typeof ModelIcon];
+export type CheckpadModelIcon =
+    (typeof CheckpadModelIcon)[keyof typeof CheckpadModelIcon];
 
-export type Model = (typeof Model)[keyof typeof Model];
+export type CheckpadModel = (typeof CheckpadModel)[keyof typeof CheckpadModel];
 
 export type Activity = (typeof ApiActivity)[keyof typeof ApiActivity];
 
@@ -35,8 +36,8 @@ export interface CheckpadsResponse {
 export interface CheckpadValue {
     id: number;
     hash: string;
-    model: Model;
-    modelIcon: ModelIcon;
+    model: CheckpadModel;
+    modelIcon: CheckpadModelIcon;
     activity: Activity;
     hasOrder: number;
     idleTime: number | null;
