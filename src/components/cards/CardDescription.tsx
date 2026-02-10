@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const CardDescription = styled.div<{ $mt?: string }>`
+interface CardDescriptionProps {
+    $mt?: string;
+}
+
+const CardDescription = styled.div<CardDescriptionProps>`
   white-space: nowrap;
   gap: 4px;
   display: flex;
