@@ -3,16 +3,16 @@
 import { PropsWithChildren, useContext } from "react";
 import { createContext } from "react";
 
-const DashboardContext = createContext(null);
+const SearchContext = createContext(null);
 
-export default function DashboardContextProvider({
+export default function SearchContextProvider({
     children,
 }: PropsWithChildren) {
-    return <DashboardContext value={null}>{children}</DashboardContext>;
+    return <SearchContext value={null}>{children}</SearchContext>;
 }
 
 export function useDashboard() {
-    const context = useContext(DashboardContext);
+    const context = useContext(SearchContext);
     if (!context) {
         Error("useDashboard must be used within a DashboardContextProvider");
     }
