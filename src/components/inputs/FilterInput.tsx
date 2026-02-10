@@ -20,7 +20,7 @@ type SearchInputProps = {
     labelProps?: React.ComponentProps<typeof Label>;
 };
 
-export default function SearchInput({
+export default function FilterInput({
     inputProps,
     labelProps,
 }: SearchInputProps) {
