@@ -1,7 +1,7 @@
 import { CardMesaProps } from "@/components/cards/CardMesa";
 import { getAllCheckpads } from "@/lib/api/checkpadResponse";
 import { CheckpadValue } from "@/types/apiResponse.types";
-import { getOrdersheetsRecordByIds } from "./ordersheet";
+import { getOrdersheetsRecordByIds } from "./api/ordersheet";
 
 async function CheckpadToMesaProps(
     checkpadValue: CheckpadValue,
@@ -22,7 +22,9 @@ async function CheckpadToMesaProps(
     const ordersheetsArray = Object.values(ordersheets);
 
     let totalPrice = 0;
-    let customerName: string | undefined;
+    let customerName,
+        mainIdentifier,
+        custumerIdentifier: string | undefined | null;
 
     for (const ordersheet of ordersheetsArray) {
         totalPrice += ordersheet.subtotal ?? 0;
@@ -30,19 +32,37 @@ async function CheckpadToMesaProps(
         if (customerName) {
             continue;
         }
-        customerName = ordersheet.customerName;
+        if (ordersheet.customerName) {
+            customerName = ordersheet.customerName;
+            continue;
+        }
+        if (ordersheet.mainIdentifier) {
+            mainIdentifier = ordersheet.mainIdentifier;
+        }
+        if (mainIdentifier) {
+            continue;
+        }
+        if (ordersheet.identifier) {
+            custumerIdentifier = ordersheet.identifier;
+        }
     }
 
-    if (!customerName) {
-        customerName = "Sem nome";
-    }
+    const customer =
+        customerName?.trim() ||
+        mainIdentifier?.trim() ||
+        custumerIdentifier?.trim();
+
+    const isRealName = !!customerName;
 
     return {
         identifier,
         data: {
             ordersheetsNum: ordersheetsArray.length,
             totalPrice,
-            customer: customerName,
+            customer: {
+                value: customer!,
+                isRealName,
+            },
             lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
             waiterFullName: checkpadValue.authorName!,
             model: {
@@ -53,14 +73,12 @@ async function CheckpadToMesaProps(
     };
 }
 
-export async function getMesas(): Promise<CardMesaProps[]> {
+export async function getDashboardMesas(): Promise<CardMesaProps[]> {
     const checkpadResponse = await getAllCheckpads();
 
     const promises = Object.values(checkpadResponse.checkpads).map(
         CheckpadToMesaProps,
     );
 
-    const output = await Promise.all(promises);
-
-    return output;
+    return Promise.all(promises);
 }
