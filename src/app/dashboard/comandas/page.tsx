@@ -1,5 +1,6 @@
 import CardOrdersheetList from "@/components/cardLists/CardOrdersheetList";
 import { CardOrdersheetProps } from "@/components/cards/CardOrdersheet";
+import { getDashboardOrdersheets } from "@/lib/ordersheet";
 
 export function generateOrders(count: number): CardOrdersheetProps[] {
     const waiters = ["Carlos", "Ana", "Luiz", "Maria", "João", "Fernanda"];
@@ -33,7 +34,7 @@ export function generateOrders(count: number): CardOrdersheetProps[] {
 }
 
 export default async function OrdersheetDashboard() {
-    const sampleCards = generateOrders(10000);
+    const cards = await getDashboardOrdersheets();
 
-    return <CardOrdersheetList cards={sampleCards} />;
+    return <CardOrdersheetList cards={cards || generateOrders(10000)} />;
 }

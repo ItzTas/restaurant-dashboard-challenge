@@ -1,8 +1,8 @@
 import CardMesaList from "@/components/cardLists/CardMesaList";
-import { getMesas } from "@/lib/api/mesa";
+import { getDashboardMesas } from "@/lib/mesa";
 
 export default async function AreasDashboard() {
-    const mesas = await getMesas();
+    const mesas = await getDashboardMesas();
 
     return <CardMesaList cards={mesas} />;
 }
