@@ -1,6 +1,5 @@
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
-import SearchContextProvider from "./SearchContext";
 import DashboardTopbar from "@/components/bars/DashboardTopbar";
 import DashboardSidebar from "@/components/bars/DashboardSidebar";
 
@@ -45,12 +44,10 @@ const MainContent = styled.main`
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
     return (
-        <SearchContextProvider>
-            <Container>
-                <SidebarWrapper />
-                <TopbarWrapper />
-                <MainContent>{children}</MainContent>
-            </Container>
-        </SearchContextProvider>
+        <Container>
+            <SidebarWrapper />
+            <TopbarWrapper />
+            <MainContent>{children}</MainContent>
+        </Container>
     );
 }
