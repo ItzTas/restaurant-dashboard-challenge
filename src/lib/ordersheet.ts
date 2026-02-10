@@ -28,6 +28,8 @@ export async function orderSheetToProps(
     return {
         identifier,
         idleTime: val.idleTime,
+        totalPrice: val.subtotal,
+        waiterFullName: val.author.name,
     };
 }
 
