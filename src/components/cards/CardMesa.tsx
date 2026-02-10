@@ -12,9 +12,9 @@ import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
 import { getInitials } from "@/utils/string";
 import IdBadgeIcon from "../icons/IdBadgeIcon";
-import { CheckpadModel, CheckpadModelIcon } from "@/types/api.types";
 import React from "react";
 import CheckpadIcon from "../icons/CheckpadIcon";
+import { Model } from "@/types/model";
 
 export interface CardMesaCustumerData {
     value: string;
@@ -24,10 +24,7 @@ export interface CardMesaCustumerData {
 export interface CardMesaPropsData {
     ordersheetsNum: number;
     customer: CardMesaCustumerData;
-    model: {
-        value: CheckpadModel;
-        icon: CheckpadModelIcon;
-    };
+    model: Model;
     lastOrderCreated: Date;
     waiterFullName: string;
     totalPrice: number;
