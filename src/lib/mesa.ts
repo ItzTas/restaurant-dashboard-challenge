@@ -1,6 +1,6 @@
 import { CardMesaProps } from "@/components/cards/CardMesa";
 import { getAllCheckpads } from "@/lib/api/checkpadResponse";
-import { CheckpadValue } from "@/types/apiResponse.types";
+import { CheckpadValue } from "@/types/api.types";
 import { getOrdersheetsRecordByIds } from "./api/ordersheet";
 
 async function CheckpadToMesaProps(
