@@ -45,7 +45,7 @@ export interface CheckpadValue {
     identifier: string;
     orderSheetIds: number[];
     hasOrderSheets: boolean;
-    lastOrderCreated: Date | null;
+    lastOrderCreated: string | Date | null;
     numberOfCustomers: number | null;
     customerIdentifier: string | null;
 }
