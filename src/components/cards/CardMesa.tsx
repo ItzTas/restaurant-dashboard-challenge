@@ -13,9 +13,8 @@ import CardDescriptionRow from "./CardDescriptionRow";
 import { getInitials } from "@/utils/string";
 import IdBadgeIcon from "../icons/IdBadgeIcon";
 import { CheckpadModel, CheckpadModelIcon } from "@/types/api.types";
-import TentIcon from "../icons/TentIcon";
-import ApartmentIcon from "../icons/ApartmentIcon";
-import React, { JSX } from "react";
+import React from "react";
+import CheckpadIcon from "../icons/CheckpadIcon";
 
 export interface CardMesaCustumerData {
     value: string;
@@ -62,16 +61,6 @@ export default function CardMesa({
         );
     }
 
-    function getModelIcon(iconStr: CheckpadModelIcon) {
-        const icons: Record<CheckpadModelIcon, JSX.Element> = {
-            tent: <TentIcon />,
-            apartment: <ApartmentIcon />,
-            "table-restaurant": <TableIcon />,
-        } as const;
-
-        return React.cloneElement(icons[iconStr], descriptionIconProps);
-    }
-
     const waiter = waiterFullName ? getInitials(waiterFullName) : "--";
 
     return (
@@ -92,7 +81,7 @@ export default function CardMesa({
                             <span>{customer!.value}</span>
                         </CardDescriptionRow>
                         <CardDescriptionRow>
-                            {getModelIcon(model!.icon)}
+                            <CheckpadIcon icon={model!.icon} {...descriptionIconProps} />
                             <span>{model!.value}</span>
                         </CardDescriptionRow>
                     </CardDescription>
