@@ -1,4 +1,4 @@
-import { OrdersheetsResponse } from "@/types/apiResponse.types";
+import { OrdersheetsResponse } from "@/types/api.types";
 import { apiUrl } from "../../constants/api";
 
 export async function getAllAreas(): Promise<OrdersheetsResponse> {
