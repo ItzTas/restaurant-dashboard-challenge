@@ -10,27 +10,30 @@ import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
 import CardSummaryFooter from "./CardSummaryFooter";
 
-export interface CardMesaProps {
-    tableNumber: number;
-    data?: {
-        code: string;
-        contact: {
-            value: string;
-            type: "phone" | "customer";
-        };
-        location: string;
-        createdAt: Date;
-        waiter: string;
-        totalPrice: number;
+export interface CardMesaPropsData {
+    code: string;
+    contact: {
+        value: string;
+        type: "phone" | "customer";
     };
+    location: string;
+    lastOrderCreated: Date;
+    waiter: string;
+    totalPrice: number;
+}
+
+export interface CardMesaProps {
+    identifier: string;
+    data?: CardMesaPropsData;
 }
 
 export default function CardMesa({
-    tableNumber,
+    identifier,
     data,
     ...props
 }: CardMesaProps & React.HTMLAttributes<HTMLDivElement>) {
-    const { code, contact, location, createdAt, waiter, totalPrice } = data ?? {};
+    const { code, contact, location, lastOrderCreated, waiter, totalPrice } =
+        data ?? {};
 
     function getContactIcon() {
         const icons: Record<
@@ -49,7 +52,7 @@ export default function CardMesa({
             <div>
                 <CardHeader>
                     <TableIcon width={14} height={15} />
-                    {tableNumber}
+                    {identifier}
                 </CardHeader>
                 {data && (
                     <CardDescription $mt="4px">
@@ -70,7 +73,7 @@ export default function CardMesa({
             </div>
             {data && (
                 <CardSummaryFooter
-                    createdAt={createdAt!}
+                    createdAt={lastOrderCreated!}
                     waiter={waiter!}
                     price={totalPrice!}
                 />
