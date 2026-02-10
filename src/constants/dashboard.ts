@@ -1,6 +1,6 @@
 export const DashboardSlugsObj = {
     Ordersheets: "comandas",
-    Areas: "locais",
+    Areas: "mesas",
 } as const;
 
 export const DashboardSlugsArray = Object.freeze(
