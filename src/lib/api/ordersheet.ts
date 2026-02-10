@@ -18,15 +18,14 @@ export async function getOrdersheetsRecordByIds(
 ): Promise<Record<string, OrdersheetValue>> {
     if (ids.length === 0) return {};
 
-    const allOrdersheets = await getAllOrdersheet();
-    const idsSet = new Set(ids);
-
+    const ordersheets = await getAllOrdersheet();
     const output: Record<string, OrdersheetValue> = {};
 
-    for (const ordersheet of Object.values(allOrdersheets)) {
-        if (!idsSet.has(ordersheet.id)) continue;
+    for (const id of ids) {
+        const ordersheet = ordersheets[id];
+        if (!ordersheet) continue;
 
-        output[ordersheet.id] = ordersheet;
+        output[id] = ordersheet;
     }
 
     return output;

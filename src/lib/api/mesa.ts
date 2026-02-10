@@ -4,20 +4,20 @@ import { CheckpadValue } from "@/types/apiResponse.types";
 import { getOrdersheetsRecordByIds } from "./ordersheet";
 
 async function CheckpadToMesaProps(
-    item: CheckpadValue,
+    checkpadValue: CheckpadValue,
 ): Promise<CardMesaProps> {
-    const { id, identifier } = item;
+    const { id, identifier } = checkpadValue;
 
-    if (!item.hasOrder || item.orderSheetIds.length === 0) {
+    if (!checkpadValue.hasOrder || checkpadValue.orderSheetIds.length === 0) {
         return {
             identifier,
             data: undefined,
         };
     }
 
-    const ordersheets = await getOrdersheetsRecordByIds(item.orderSheetIds);
-    console.log(item.orderSheetIds);
-    console.log(ordersheets);
+    const ordersheets = await getOrdersheetsRecordByIds(
+        checkpadValue.orderSheetIds,
+    );
 
     const totalPrice = Object.values(ordersheets).reduce((acc, ordersheet) => {
         return acc + ordersheet.subtotal;
@@ -27,9 +27,8 @@ async function CheckpadToMesaProps(
         identifier: identifier,
         data: {
             totalPrice,
-            contact: {
-                type: "phone",
-            },
+            customer: "customer",
+            lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
         },
     };
 

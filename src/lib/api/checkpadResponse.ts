@@ -18,7 +18,7 @@ export async function getCheckpadsRecordByIds(
 
     const query = ids.map((id) => `id=${id}`).join("&");
 
-    const res = await fetch(`${apiUrl}/checkpads?${query}`);
+    const res = await fetch(`${apiUrl}/checkpadsResponse?${query}`);
 
     if (!res.ok) {
         throw new Error("Failed to fetch checkpads");
