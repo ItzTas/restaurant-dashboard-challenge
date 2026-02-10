@@ -27,8 +27,6 @@ async function CheckpadToMesaProps(
     for (const ordersheet of ordersheetsArray) {
         totalPrice += ordersheet.subtotal ?? 0;
 
-        console.log(ordersheet.customerName);
-        console.log(ordersheet);
         if (customerName) {
             continue;
         }
