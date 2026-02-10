@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const CardDescription = styled.div<{ $mt?: string }>`
   white-space: nowrap;
-  gap: 0.125rem;
+  gap: 4px;
   display: flex;
   flex-direction: column;
   margin-top: ${({ $mt }) => $mt};

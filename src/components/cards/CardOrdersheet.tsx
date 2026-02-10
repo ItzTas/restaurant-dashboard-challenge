@@ -7,8 +7,9 @@ import LocationIcon from "../icons/LocationIcon";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
-import { descriptionIconProps } from "../../constants/iconPresets";
+import { descriptionIconProps, headerIconProps } from "../../constants/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
+import CardDescriptionRow from "./CardDescriptionRow";
 
 export interface CardOrdersheetProps {
     title: string;
@@ -49,29 +50,29 @@ export default function CardOrdersheet({
         <CardContainer {...props}>
             <div>
                 <CardHeader>
-                    <ReceiptIcon width={14} height={15} />
+                    <ReceiptIcon {...headerIconProps}/>
                     {title}
                 </CardHeader>
 
                 {(subtitle || tableText || locationText) && (
                     <CardDescription $mt="4px">
                         {subtitle && (
-                            <div>
+                            <CardDescriptionRow>
                                 {getSubtitleIcon()}
-                                {subtitle.value}
-                            </div>
+                                <span>{subtitle.value}</span>
+                            </CardDescriptionRow>
                         )}
                         {tableText && (
-                            <div>
+                            <CardDescriptionRow>
                                 <TableIcon {...descriptionIconProps} />
-                                {tableText}
-                            </div>
+                                <span>{tableText}</span>
+                            </CardDescriptionRow>
                         )}
                         {locationText && (
-                            <div>
+                            <CardDescriptionRow>
                                 <LocationIcon {...descriptionIconProps} />
-                                {locationText}
-                            </div>
+                                <span>{locationText}</span>
+                            </CardDescriptionRow>
                         )}
                     </CardDescription>
                 )}

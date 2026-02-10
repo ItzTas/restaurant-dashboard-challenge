@@ -3,6 +3,7 @@ import RoomServiceIcon from "../icons/RoomServiceIcon";
 import TimePassed from "../TimePassed";
 import { descriptionIconProps } from "../../constants/iconPresets";
 import CardFooter from "./CardFooter";
+import CardFooterColumn from "./CardFooterColumn";
 
 export interface CardSummaryFooterProps {
     createdAt: Date;
@@ -17,13 +18,15 @@ export default function CardSummaryFooter({
 }: CardSummaryFooterProps) {
     return (
         <CardFooter>
-            <div>
+            <CardFooterColumn>
                 <TimerIcon {...descriptionIconProps} />
-                <TimePassed from={createdAt} />
-            </div>
+                <span>
+                    <TimePassed from={createdAt} />
+                </span>
+            </CardFooterColumn>
             <div>
                 <RoomServiceIcon {...descriptionIconProps} />
-                {waiter}
+                <span>{waiter}</span>
             </div>
             <div>R${price}</div>
         </CardFooter>
