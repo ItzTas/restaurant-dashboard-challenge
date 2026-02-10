@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import NavOptionsTab from "./NavOptionsTab";
 import { useState } from "react";
-import { redirect, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +29,7 @@ export default function NavOptions({
     handleTabChange,
     currentTab: propCurrentTab,
 }: NavOptionsProps) {
+    const router = useRouter();
     const pathname = usePathname();
 
     const normalizePath = (path?: string) =>
@@ -50,7 +51,7 @@ export default function NavOptions({
         if (!propCurrentTab) {
             setInternalTab(tab);
         }
-        redirect(path);
+        router.push(path);
     }
 
     function onClick(tab: TabItem) {
