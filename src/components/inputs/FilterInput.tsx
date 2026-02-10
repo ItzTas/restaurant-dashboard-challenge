@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useEffect } from "react";
 import Input from "./Input";
 import SearchIcon from "../icons/SearchIcon";
 import styled from "styled-components";
 import { setFilterQuery } from "@/features/filters/slice";
-import { useFilterQuery } from "@/features/filters/hooks";
 import { useAppDispatch } from "@/store/hooks";
 
 const Label = styled.label`
