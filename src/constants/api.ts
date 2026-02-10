@@ -12,7 +12,7 @@ export const CheckpadModel = {
     Mesa: "Mesa",
 } as const;
 
-export const Activity = {
+export const ApiActivity = {
     Active: "active",
     Empty: "empty",
     Inactive: "inactive",

@@ -1,4 +1,4 @@
-import { Activity, CheckpadModel, CheckpadModelIcon } from "@/constants/api";
+import { ApiActivity, CheckpadModel, CheckpadModelIcon } from "@/constants/api";
 
 export interface AreaValue {
     id: string;
@@ -27,7 +27,7 @@ export type CheckpadModelIcon =
 
 export type CheckpadModel = (typeof CheckpadModel)[keyof typeof CheckpadModel];
 
-export type Activity = (typeof Activity)[keyof typeof Activity];
+export type ApiActivity = (typeof ApiActivity)[keyof typeof ApiActivity];
 
 export interface CheckpadsResponse {
     [key: string]: CheckpadValue;
@@ -38,7 +38,7 @@ export interface CheckpadValue {
     hash: string;
     model: CheckpadModel;
     modelIcon: CheckpadModelIcon;
-    activity: Activity;
+    activity: ApiActivity;
     hasOrder: number;
     idleTime: number | null;
     subtotal: number | null;
