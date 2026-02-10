@@ -19,14 +19,16 @@ async function CheckpadToMesaProps(
         checkpadValue.orderSheetIds,
     );
 
+    const ordersheetsArray = Object.values(ordersheets);
+
     let totalPrice = 0;
     let customerName: string | undefined;
 
-    for (const ordersheet of Object.values(ordersheets)) {
+    for (const ordersheet of ordersheetsArray) {
         totalPrice += ordersheet.subtotal ?? 0;
 
         console.log(ordersheet.customerName);
-        console.log(ordersheet)
+        console.log(ordersheet);
         if (customerName) {
             continue;
         }
@@ -40,6 +42,7 @@ async function CheckpadToMesaProps(
     return {
         identifier,
         data: {
+            ordersheetsNum: ordersheetsArray.length,
             totalPrice,
             customer: customerName,
             lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
