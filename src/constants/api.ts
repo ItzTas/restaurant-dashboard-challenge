@@ -1,12 +1,12 @@
 export const apiUrl = process.env["API_URL"] || "http://localhost:3001";
 
-export const ModelIcon = {
+export const CheckpadModelIcon = {
     Apartment: "apartment",
-    TableRestaurant: "table-restaurant",
     Tent: "tent",
+    TableRestaurant: "table-restaurant",
 } as const;
 
-export const Model = {
+export const CheckpadModel = {
     Apartamento: "Apartamento",
     Barraca: "Barraca",
     Mesa: "Mesa",
