@@ -60,7 +60,7 @@ export interface OrdersheetValue {
     author: Author;
     opened: string;
     contact: string;
-    checkpad: Checkpad;
+    checkpad: CheckpadValue;
     hasOrder: number;
     idleTime: number;
     subtotal: number;
