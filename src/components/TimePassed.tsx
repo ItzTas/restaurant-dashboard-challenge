@@ -16,15 +16,20 @@ export default function TimePassed({ from = new Date() }: MinutesPassedProps) {
         }
 
         update();
-        const interval = setInterval(update, 60000);
+        const interval = setInterval(update, 60000); // atualiza a cada minuto
 
         return () => clearInterval(interval);
     }, [from]);
 
     if (timePassed <= 120) {
-        return <>{timePassed}m</>;
+        return <>{timePassed} min</>;
     }
 
     const hours = Math.floor(timePassed / 60);
-    return <>{hours}h</>;
+    if (hours <= 48) {
+        return <>{hours} hr</>;
+    }
+
+    const days = Math.floor(hours / 24);
+    return <>{days} d</>;
 }
