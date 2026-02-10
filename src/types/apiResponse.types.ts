@@ -51,10 +51,10 @@ export interface CheckpadValue {
 }
 
 export interface OrdersheetsResponse {
-    [id: string]: OrderSheet;
+    [id: string]: OrdersheetValue;
 }
 
-export interface OrderSheet {
+export interface OrdersheetValue {
     id: number;
     author: Author;
     opened: string;
