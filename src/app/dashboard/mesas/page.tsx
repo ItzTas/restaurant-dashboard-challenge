@@ -1,4 +1,4 @@
-import CardMesaList from "@/components/cardLists/CardMesaList";
+import CardMesaList from "@/components/cardLists/DashboardCardMesaList";
 import { getDashboardMesas } from "@/lib/mesa";
 
 export default async function AreasDashboard() {
