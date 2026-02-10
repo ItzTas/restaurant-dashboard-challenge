@@ -12,13 +12,20 @@ import CardDescription from "./CardDescription";
 import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
 import { getInitials } from "@/utils/string";
+import IdBadgeIcon from "../icons/IdBadgeIcon";
+import { CheckpadModel, CheckpadModelIcon } from "@/types/api.types";
+
+export interface CardMesaCustumerData {
+    value: string;
+    isRealName: boolean;
+}
 
 export interface CardMesaPropsData {
     ordersheetsNum: number;
-    customer: string;
+    customer: CardMesaCustumerData;
     model: {
-        value: string;
-        icon: string;
+        value: CheckpadModel;
+        icon: CheckpadModelIcon;
     };
     lastOrderCreated: Date;
     waiterFullName: string;
@@ -44,6 +51,15 @@ export default function CardMesa({
         totalPrice,
     } = data ?? {};
 
+    function getCustomerIcon() {
+        if (!customer) return null;
+        return customer.isRealName ? (
+            <AvatarIcon {...descriptionIconProps} />
+        ) : (
+            <IdBadgeIcon {...descriptionIconProps} />
+        );
+    }
+
     return (
         <CardContainer {...props}>
             <div>
@@ -58,12 +74,12 @@ export default function CardMesa({
                             <span>{ordersheetsNum}</span>
                         </CardDescriptionRow>
                         <CardDescriptionRow>
-                            <AvatarIcon {...descriptionIconProps} />
-                            <span>{customer}</span>
+                            {getCustomerIcon()}
+                            <span>{customer!.value}</span>
                         </CardDescriptionRow>
                         <CardDescriptionRow>
                             <LocationIcon {...descriptionIconProps} />
-                            <span>{model?.value}</span>
+                            <span>{model!.value}</span>
                         </CardDescriptionRow>
                     </CardDescription>
                 )}

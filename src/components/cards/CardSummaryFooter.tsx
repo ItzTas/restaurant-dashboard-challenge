@@ -24,10 +24,10 @@ export default function CardSummaryFooter({
                     <TimePassed from={createdAt} />
                 </span>
             </CardFooterColumn>
-            <div>
+            <CardFooterColumn>
                 <RoomServiceIcon {...descriptionIconProps} />
                 <span>{waiter}</span>
-            </div>
+            </CardFooterColumn>
             <div>R${price}</div>
         </CardFooter>
     );
