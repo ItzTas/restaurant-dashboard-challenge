@@ -9,6 +9,14 @@ export async function getAllCheckpads(): Promise<CheckpadsResponse> {
     return res.json();
 }
 
+export async function getCheckpadById(id: string | number) {
+    const res = await fetch(`${apiUrl}/checkpadResponse/${id}`);
+    if (!res.ok) {
+        throw new Error("Failed to fetch");
+    }
+    return res.json();
+}
+
 export async function getCheckpadsRecordByIds(
     ids: number[],
 ): Promise<Record<string, CheckpadValue>> {
