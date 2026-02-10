@@ -6,7 +6,7 @@ import { getOrdersheetsRecordByIds } from "./ordersheet";
 async function CheckpadToMesaProps(
     checkpadValue: CheckpadValue,
 ): Promise<CardMesaProps> {
-    const { id, identifier } = checkpadValue;
+    const { identifier } = checkpadValue;
 
     if (!checkpadValue.hasOrder || checkpadValue.orderSheetIds.length === 0) {
         return {
@@ -19,20 +19,32 @@ async function CheckpadToMesaProps(
         checkpadValue.orderSheetIds,
     );
 
-    const totalPrice = Object.values(ordersheets).reduce((acc, ordersheet) => {
-        return acc + ordersheet.subtotal;
-    }, 0);
+    let totalPrice = 0;
+    let customerName: string | undefined;
 
-    const cardProps: CardMesaProps = {
-        identifier: identifier,
+    for (const ordersheet of Object.values(ordersheets)) {
+        totalPrice += ordersheet.subtotal ?? 0;
+
+        console.log(ordersheet.customerName);
+        console.log(ordersheet)
+        if (customerName) {
+            continue;
+        }
+        customerName = ordersheet.customerName;
+    }
+
+    if (!customerName) {
+        customerName = "Sem nome";
+    }
+
+    return {
+        identifier,
         data: {
             totalPrice,
-            customer: "customer",
+            customer: customerName,
             lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
         },
     };
-
-    return cardProps;
 }
 
 export async function getMesas(): Promise<CardMesaProps[]> {
