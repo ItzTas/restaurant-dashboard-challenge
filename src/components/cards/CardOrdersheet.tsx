@@ -13,9 +13,10 @@ import {
 } from "../../constants/iconPresets";
 import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
+import { getInitials } from "@/utils/string";
 
 export interface CardOrdersheetProps {
-    title: string;
+    identifier: string;
     subtitle?: {
         value: string;
         type: "phone" | "id" | "customer";
@@ -23,19 +24,19 @@ export interface CardOrdersheetProps {
     tableText?: string;
     locationText?: string;
     idleTime: number;
-    waiter: string;
+    waiterFullName: string;
     totalPrice: number;
 }
 
 type SubtitleType = NonNullable<CardOrdersheetProps["subtitle"]>["type"];
 
 export default function CardOrdersheet({
-    title,
+    identifier,
     subtitle,
     tableText,
     locationText,
     idleTime,
-    waiter,
+    waiterFullName,
     totalPrice,
     ...props
 }: CardOrdersheetProps & React.ComponentProps<typeof CardContainer>) {
@@ -49,12 +50,14 @@ export default function CardOrdersheet({
         return cloneElement(icons[subtitle!.type], descriptionIconProps);
     }
 
+    const waiter = waiterFullName ? getInitials(waiterFullName) : "--";
+
     return (
         <CardContainer {...props}>
             <div>
                 <CardHeader>
                     <ReceiptIcon {...headerIconProps} />
-                    {title}
+                    {identifier}
                 </CardHeader>
 
                 {(subtitle || tableText || locationText) && (
