@@ -46,6 +46,11 @@ async function CheckpadToMesaProps(
             totalPrice,
             customer: customerName,
             lastOrderCreated: new Date(checkpadValue.lastOrderCreated!),
+            waiterFullName: checkpadValue.authorName!,
+            model: {
+                value: checkpadValue.model,
+                icon: checkpadValue.modelIcon,
+            },
         },
     };
 }

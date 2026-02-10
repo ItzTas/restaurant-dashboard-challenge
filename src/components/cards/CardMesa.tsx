@@ -11,13 +11,17 @@ import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
 import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
+import { getInitials } from "@/utils/string";
 
 export interface CardMesaPropsData {
     ordersheetsNum: number;
     customer: string;
-    location: string;
+    model: {
+        value: string;
+        icon: string;
+    };
     lastOrderCreated: Date;
-    waiter: string;
+    waiterFullName: string;
     totalPrice: number;
 }
 
@@ -33,10 +37,10 @@ export default function CardMesa({
 }: CardMesaProps & React.ComponentProps<typeof CardContainer>) {
     const {
         customer,
-        location,
+        model,
         lastOrderCreated,
         ordersheetsNum,
-        waiter,
+        waiterFullName,
         totalPrice,
     } = data ?? {};
 
@@ -59,7 +63,7 @@ export default function CardMesa({
                         </CardDescriptionRow>
                         <CardDescriptionRow>
                             <LocationIcon {...descriptionIconProps} />
-                            <span>{location}</span>
+                            <span>{model?.value}</span>
                         </CardDescriptionRow>
                     </CardDescription>
                 )}
@@ -67,7 +71,7 @@ export default function CardMesa({
             {data && (
                 <CardSummaryFooter
                     createdAt={lastOrderCreated!}
-                    waiter={waiter!}
+                    waiter={getInitials(waiterFullName!)}
                     price={totalPrice!}
                 />
             )}
