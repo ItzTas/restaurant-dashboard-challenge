@@ -13,7 +13,7 @@ import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
 
 export interface CardMesaPropsData {
-    code: string;
+    ordersheetsNum: number;
     customer: string;
     location: string;
     lastOrderCreated: Date;
@@ -31,13 +31,8 @@ export default function CardMesa({
     data,
     ...props
 }: CardMesaProps & React.HTMLAttributes<HTMLDivElement>) {
-    const {
-        customer: contact,
-        location,
-        lastOrderCreated,
-        waiter,
-        totalPrice,
-    } = data ?? {};
+    const { customer, location, lastOrderCreated, waiter, totalPrice } =
+        data ?? {};
 
     return (
         <CardContainer {...props}>
@@ -53,7 +48,7 @@ export default function CardMesa({
                         </CardDescriptionRow>
                         <CardDescriptionRow>
                             <AvatarIcon {...descriptionIconProps} />
-                            <span>{contact}</span>
+                            <span>{customer}</span>
                         </CardDescriptionRow>
                         <CardDescriptionRow>
                             <LocationIcon {...descriptionIconProps} />
