@@ -2,10 +2,10 @@
 
 import useSWR from "swr";
 import { OrdersheetsResponse } from "@/types/apiResponse.types";
-import { fetchAllOrdersheet } from "@/lib/api/ordersheet";
+import { getAllOrdersheet } from "@/lib/api/ordersheet";
 
 export function useOrdersheets() {
-    const res = useSWR<OrdersheetsResponse>("/ordersheet", fetchAllOrdersheet);
+    const res = useSWR<OrdersheetsResponse>("/ordersheet", getAllOrdersheet);
 
     return res;
 }
