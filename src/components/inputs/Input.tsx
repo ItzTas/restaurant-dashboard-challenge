@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const InputStyle = styled.input<{ height?: string; width?: string }>`
+const Input = styled.input<{ height?: string; width?: string }>`
   height: ${(props) => props.height || "24px"};
   width: ${(props) => props.width || "clamp(50px, 20vw, 184px)"};
   background-color: transparent;
@@ -17,8 +16,4 @@ const InputStyle = styled.input<{ height?: string; width?: string }>`
   }
 `;
 
-type InputProps = React.ComponentProps<typeof InputStyle>;
-
-export default function Input({ ...props }: InputProps) {
-    return <InputStyle {...props} />;
-}
+export default Input;
