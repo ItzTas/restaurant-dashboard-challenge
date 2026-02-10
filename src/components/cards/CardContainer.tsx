@@ -3,10 +3,12 @@ import styled from "styled-components";
 
 interface CardContainerProps {
     width?: number;
+    height?: number;
 }
 
 const CardContainer = styled.div<CardContainerProps>`
-  height: ${CardContainerHeight}px;
+  height: ${({ height }) =>
+        height ? `${height}px` : `${CardContainerHeight}px`};
   width: ${({ width }) => (width ? `${width}px` : "199px")};
   display: flex;
   justify-content: space-between;
