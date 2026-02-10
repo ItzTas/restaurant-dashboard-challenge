@@ -14,7 +14,7 @@ import CardSummaryFooter from "./CardSummaryFooter";
 import CardDescriptionRow from "./CardDescriptionRow";
 import { getInitials } from "@/utils/string";
 import CustomersIcon from "../icons/CustomersIcon";
-import { Model } from "@/types/model";
+import { Model } from "@/types/cards";
 import CheckpadIcon from "../icons/CheckpadIcon";
 
 export interface CardOrdersheetContact {

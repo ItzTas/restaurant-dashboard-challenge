@@ -14,7 +14,7 @@ import { getInitials } from "@/utils/string";
 import IdBadgeIcon from "../icons/IdBadgeIcon";
 import React from "react";
 import CheckpadIcon from "../icons/CheckpadIcon";
-import { Model } from "@/types/model";
+import { Model } from "@/types/cards";
 
 export interface CardMesaCustumerData {
     value: string;

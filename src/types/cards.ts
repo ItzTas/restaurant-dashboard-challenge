@@ -1,4 +1,4 @@
-import { CheckpadModel, CheckpadModelIcon } from "./api.types";
+import { CheckpadModel, CheckpadModelIcon } from "./api";
 
 export interface Model {
     value: CheckpadModel;

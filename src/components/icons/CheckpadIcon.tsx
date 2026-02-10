@@ -1,4 +1,4 @@
-import { CheckpadModelIcon } from "@/types/api.types";
+import { CheckpadModelIcon } from "@/types/api";
 import ApartmentIcon from "./ApartmentIcon";
 import TableIcon from "./TableIcon";
 import TentIcon from "./TentIcon";
