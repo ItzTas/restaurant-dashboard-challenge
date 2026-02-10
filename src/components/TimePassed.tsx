@@ -6,15 +6,13 @@ export interface MinutesPassedProps {
     from?: Date;
 }
 
-export default function MinutesPassed({
-    from = new Date(),
-}: MinutesPassedProps) {
-    const [minutes, setMinutes] = useState(0);
+export default function TimePassed({ from = new Date() }: MinutesPassedProps) {
+    const [timePassed, setTimePassed] = useState(0);
 
     useEffect(() => {
         function update() {
             const diff = Math.floor((new Date().getTime() - from.getTime()) / 60000);
-            setMinutes(diff);
+            setTimePassed(diff);
         }
 
         update();
@@ -23,5 +21,10 @@ export default function MinutesPassed({
         return () => clearInterval(interval);
     }, [from]);
 
-    return <>{minutes}</>;
+    if (timePassed <= 120) {
+        return <>{timePassed}m</>;
+    }
+
+    const hours = Math.floor(timePassed / 60);
+    return <>{hours}h</>;
 }

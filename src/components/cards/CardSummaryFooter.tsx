@@ -1,6 +1,6 @@
 import TimerIcon from "../icons/TimerIcon";
 import RoomServiceIcon from "../icons/RoomServiceIcon";
-import MinutesPassed from "../MinutesPassed";
+import TimePassed from "../TimePassed";
 import { descriptionIconProps } from "../../constants/iconPresets";
 import CardFooter from "./CardFooter";
 
@@ -19,7 +19,7 @@ export default function CardSummaryFooter({
         <CardFooter>
             <div>
                 <TimerIcon {...descriptionIconProps} />
-                <MinutesPassed from={createdAt} /> min
+                <TimePassed from={createdAt} />
             </div>
             <div>
                 <RoomServiceIcon {...descriptionIconProps} />
