@@ -55,3 +55,16 @@ npm run dev:all # Para rodar os dois
 ## Decisões arquiteturais
 
 ### Bibliotecas usadas
+
+#### Redux Toolkit
+
+Para gerenciamento de estados globais foi utilizado o redux toolkit.
+Foi escolhido por ter uma estrutura mais organizada em relação ao context, além de servir como uma boa oportunidade para explorar seu uso na prática.
+
+#### styled-components
+
+Para estilização foi usado o styled-components.
+
+#### react-virtuoso
+
+#### json-server
