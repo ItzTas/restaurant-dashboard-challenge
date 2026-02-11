@@ -9,5 +9,5 @@ export function useFilterStatus() {
 }
 
 export function useFilterWaiter() {
-    return useAppSelector((state) => state.filters.waiter);
+    return useAppSelector((state) => state.filters.waiterFilter);
 }

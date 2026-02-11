@@ -3,7 +3,7 @@ import { Filters } from "./types";
 
 const initialState: Filters = {
     statusFilter: "",
-    waiter: "",
+    waiterFilter: "",
     filterQuery: "",
 };
 
@@ -19,8 +19,8 @@ const filtersSlice = createSlice({
             state.statusFilter = action.payload;
         },
 
-        setWaiter(state, action: PayloadAction<string>) {
-            state.waiter = action.payload;
+        setWaiterFilter(state, action: PayloadAction<string>) {
+            state.waiterFilter = action.payload;
         },
 
         resetFilters() {
@@ -29,7 +29,11 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { setStatusFilter, setWaiter, setFilterQuery, resetFilters } =
-    filtersSlice.actions;
+export const {
+    setStatusFilter,
+    setWaiterFilter,
+    setFilterQuery,
+    resetFilters,
+} = filtersSlice.actions;
 
 export default filtersSlice.reducer;
