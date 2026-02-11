@@ -1,10 +1,5 @@
+import { Filters } from "@/features/filters/types";
 import { ApiActivity } from "@/types/api";
-
-interface Filters {
-    filterQuery: string;
-    statusFilter: string;
-    waiterFilter: string;
-}
 
 export function filterCards<T extends { activity?: ApiActivity }>(
     cards: T[],
@@ -14,7 +9,7 @@ export function filterCards<T extends { activity?: ApiActivity }>(
     const { filterQuery, statusFilter } = filters;
 
     const query = filterQuery.toLowerCase();
-    const status = statusFilter?.trim().toLowerCase(); 
+    const status = statusFilter?.trim().toLowerCase();
 
     return cards.filter((card) => {
         const values = getValues(card);
