@@ -1,5 +1,5 @@
 export type Filters = {
-    statusFilter?: string;
-    waiter?: string;
+    statusFilter: string;
+    waiter: string;
     filterQuery: string;
 };

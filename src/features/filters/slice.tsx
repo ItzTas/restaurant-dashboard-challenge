@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Filters } from "./types";
 
 const initialState: Filters = {
-    statusFilter: undefined,
-    waiter: undefined,
+    statusFilter: "",
+    waiter: "",
     filterQuery: "",
 };
 
@@ -15,11 +15,11 @@ const filtersSlice = createSlice({
             state.filterQuery = action.payload;
         },
 
-        setStatusFilter(state, action: PayloadAction<string | undefined>) {
+        setStatusFilter(state, action: PayloadAction<string>) {
             state.statusFilter = action.payload;
         },
 
-        setWaiter(state, action: PayloadAction<string | undefined>) {
+        setWaiter(state, action: PayloadAction<string>) {
             state.waiter = action.payload;
         },
 
