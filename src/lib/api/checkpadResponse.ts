@@ -12,8 +12,8 @@ export async function getAllCheckpads(): Promise<CheckpadsResponse> {
 export async function getCheckpadById(
     id: string | number,
 ): Promise<CheckpadValue | null> {
-    const checkpads = await getAllCheckpads();
-    for (const checkpad of Object.values(checkpads)) {
+    const checkpadResponse = await getAllCheckpads();
+    for (const checkpad of Object.values(checkpadResponse.checkpads)) {
         if (checkpad.id === id) {
             return checkpad;
         }
