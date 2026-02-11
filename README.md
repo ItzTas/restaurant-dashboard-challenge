@@ -65,7 +65,7 @@ além de permitir atualizações granulares dos estados.
 #### styled-components
 
 Para estilização foi usado o styled-components.
-Foi escolhido pela facilidade de integrar estilos aos componentes
+Foi escolhido pela customização e facilidade de integrar estilos aos componentes.
 
 #### react-virtuoso
 
