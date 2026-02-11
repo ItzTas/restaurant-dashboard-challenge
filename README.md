@@ -19,11 +19,19 @@ Ferramentas:
 
 yarn run dev # Para rodar o next
 yarn run mock-api # Para rodar o json server
+
+```
+
+ou
+
+```bash
+
 yarn run dev:all # Para rodas os dois
 
 ```
 
 </details>
+
 <details>
 <summary>npm</summary>
 
@@ -36,3 +44,7 @@ npm run dev:all # Para rodas os dois
 ```
 
 </details>
+
+## Decisões arquiteturais
+
+### Bibliotecas usadas
