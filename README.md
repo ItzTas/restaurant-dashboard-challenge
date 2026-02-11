@@ -127,3 +127,5 @@ Pasta com funções utilitárias simples que não interagem diretamente com a AP
 
 Pasta com constantes utilizadas pelo projeto,
 como configurações, presets e valores fixos compartilhados.
+
+## Fluxo de dados
