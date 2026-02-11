@@ -60,7 +60,7 @@ npm run dev:all # Para rodar os dois
 
 Para gerenciamento de estados globais foi utilizado o redux toolkit.
 Foi escolhido por ter uma estrutura mais organizada em relação ao context,
-além de servir como uma boa oportunidade para explorar seu uso na prática.
+além de permitir atualizações granulares dos estados.
 
 #### styled-components
 
@@ -75,4 +75,4 @@ em comparação com o react-window.
 
 #### json-server
 
-Para 
+Para mock de api foi usado o json-server.
