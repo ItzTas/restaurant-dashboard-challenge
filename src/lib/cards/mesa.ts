@@ -55,6 +55,7 @@ async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
     return {
         identifier,
         activity: val.activity,
+        waiterFullName: val?.authorName,
         data: {
             ordersheetsNum: ordersheetsArray.length,
             totalPrice,
@@ -63,7 +64,6 @@ async function checkpadToProps(val: CheckpadValue): Promise<CardMesaProps> {
                 isRealName,
             },
             lastOrderCreated: new Date(val.lastOrderCreated!),
-            waiterFullName: val.authorName!,
             model: {
                 value: val.model,
                 icon: val.modelIcon,

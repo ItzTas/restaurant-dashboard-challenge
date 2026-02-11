@@ -1,14 +1,16 @@
 import { Filters } from "@/features/filters/types";
 import { ApiActivity } from "@/types/api";
 
-export function filterCards<T extends { activity?: ApiActivity }>(
+export function filterCards<
+    T extends { activity?: ApiActivity; waiterFullName?: string | null },
+>(
     cards: T[],
     filters: Filters,
-    getValues: (card: T) => (string | undefined)[],
+    getValues: (card: T) => (string | undefined | null)[],
 ) {
-    const { filterQuery, statusFilter } = filters;
+    const { filterQuery, statusFilter, waiterFilter } = filters;
 
-    const query = filterQuery.toLowerCase();
+    const query = filterQuery?.toLowerCase();
     const status = statusFilter?.trim().toLowerCase();
 
     return cards.filter((card) => {
@@ -22,6 +24,8 @@ export function filterCards<T extends { activity?: ApiActivity }>(
 
         const matchesStatus = !status || cardStatus === status;
 
-        return matchesSearch && matchesStatus;
+        const matchesWaiter = !waiterFilter || card.waiterFullName === waiterFilter;
+
+        return matchesSearch && matchesStatus && matchesWaiter;
     });
 }

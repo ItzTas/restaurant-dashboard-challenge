@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import styled from "styled-components";
 import DashboardTopbar from "@/components/bars/DashboardTopbar";
 import DashboardSidebar from "@/components/bars/DashboardSidebar";
+import DashboardBottomBar from "@/components/bars/DashboardBottomBar";
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const Container = styled.div`
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     overflow: hidden;
   }
 `;
@@ -42,12 +43,20 @@ const MainContent = styled.main`
   }
 `;
 
+const BottomBar = styled(DashboardBottomBar)`
+  @media (min-width: 768px) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+`;
+
 export default function DashboardLayout({ children }: PropsWithChildren) {
     return (
         <Container>
             <SidebarWrapper />
             <TopbarWrapper />
             <MainContent>{children}</MainContent>
+            <BottomBar />
         </Container>
     );
 }

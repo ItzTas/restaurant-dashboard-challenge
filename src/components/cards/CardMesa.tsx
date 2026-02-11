@@ -27,29 +27,24 @@ export interface CardMesaPropsData {
     customer: CardMesaCustumerData;
     model: Model;
     lastOrderCreated: Date;
-    waiterFullName: string;
     totalPrice: number;
 }
 
 export interface CardMesaProps {
     identifier: string;
+    waiterFullName?: string | null;
     data?: CardMesaPropsData;
     activity: ApiActivity;
 }
 
 export default function CardMesa({
     identifier,
+    waiterFullName,
     data,
     ...props
 }: CardMesaProps & React.ComponentProps<typeof CardContainer>) {
-    const {
-        customer,
-        model,
-        lastOrderCreated,
-        ordersheetsNum,
-        waiterFullName,
-        totalPrice,
-    } = data ?? {};
+    const { customer, model, lastOrderCreated, ordersheetsNum, totalPrice } =
+        data ?? {};
 
     function getCustomerIcon() {
         if (!customer) return null;
