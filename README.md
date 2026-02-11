@@ -24,3 +24,16 @@ yarn run dev:all # Para rodas os dois
 ```
 
 </details>
+
+<details>
+<summary>npm</summary>
+
+```bash
+
+npm run dev # Para rodar o next
+npm run mock-api # Para rodar o json server
+npm run dev:all # Para rodas os dois
+
+```
+
+</details>
