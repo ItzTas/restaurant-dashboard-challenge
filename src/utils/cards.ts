@@ -3,8 +3,8 @@ import { ApiActivity } from "@/types/api";
 
 export function filterCards<T extends { activity?: ApiActivity }>(
     cards: T[],
-    getValues: (card: T) => (string | undefined)[],
     filters: Filters,
+    getValues: (card: T) => (string | undefined)[],
 ) {
     const { filterQuery, statusFilter } = filters;
 
