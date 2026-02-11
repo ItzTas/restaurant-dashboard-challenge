@@ -104,7 +104,7 @@ interface DropDownPrimaryOption {
 
 interface DropdownPrimaryProps {
     options: DropDownPrimaryOption[];
-    defaultValue?: string;
+    defaultValue?: number;
     onChange?: (value: string) => void;
 }
 
@@ -118,9 +118,13 @@ export default function DropdownPrimary({
         height: "9px",
         style: { marginRight: "2px" },
     } as const;
+    const initialIndex =
+        typeof defaultValue === "number" && options[defaultValue]
+            ? defaultValue
+            : 0;
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState(defaultValue || options[0]?.id);
+    const [selected, setSelected] = useState(options[initialIndex].id);
 
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -138,11 +142,11 @@ export default function DropdownPrimary({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleSelect = (optionId: string) => {
+    function handleSelect(optionId: string) {
         setSelected(optionId);
         setIsOpen(false);
         onChange?.(optionId);
-    };
+    }
 
     const selectedOption = options.find((opt) => opt.id === selected);
 
