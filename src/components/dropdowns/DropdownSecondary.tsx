@@ -33,6 +33,7 @@ const SelectButton = styled.button`
 const StyledMenu = styled(DropdownMenu)`
   bottom: calc(100% + 8px);
   width: ${dropdownWidth}px;
+  box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const StyledOption = styled(DropdownOption)``;
