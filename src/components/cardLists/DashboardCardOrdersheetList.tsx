@@ -4,43 +4,29 @@ import { useFilterQuery, useFilterStatus } from "@/features/filters/hooks";
 import CardOrdersheet from "../cards/CardOrdersheet";
 import { CardOrdersheetProps } from "../cards/CardOrdersheet";
 import CardsGridList from "./CardsGridList";
+import { filterCards } from "@/utils/cards";
+import { useDebounce } from "../hooks/useDebounce";
 
 interface CardOrdersheetListProps {
     cards: CardOrdersheetProps[];
 }
 
-function filterCards(
-    cards: CardOrdersheetProps[],
-    filterQuery: string,
-    statusFilter?: string,
-) {
-    const query = filterQuery.toLowerCase();
-    const status = statusFilter?.toLowerCase();
+export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
+    const filterQuery = useDebounce(useFilterQuery(), 250);
+    const statusFilter = useFilterStatus();
 
-    return cards.filter((card) => {
-        const values = [
+    const filteredCards = filterCards(
+        cards,
+        (card) => [
             card.identifier,
             card.contact?.value,
             card.waiterFullName,
             card.tableText,
             card.model?.value,
-        ];
-
-        const matchesSearch = values
-            .filter(Boolean)
-            .some((text) => text!.toLowerCase().includes(query));
-
-        const matchesStatus = !status || card.activity?.toLowerCase() === status;
-
-        return matchesSearch && matchesStatus;
-    });
-}
-
-export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
-    const filterQuery = useFilterQuery();
-    const statusFilter = useFilterStatus();
-
-    const filteredCards = filterCards(cards, filterQuery, statusFilter);
+        ],
+        filterQuery,
+        statusFilter,
+    );
 
     return (
         <CardsGridList

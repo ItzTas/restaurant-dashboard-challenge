@@ -5,13 +5,14 @@ import CardMesa from "../cards/CardMesa";
 import { CardMesaProps } from "../cards/CardMesa";
 import CardsGridList from "./CardsGridList";
 import { filterCards } from "@/utils/cards";
+import { useDebounce } from "../hooks/useDebounce";
 
 export interface CardMesaListProps {
     cards: CardMesaProps[];
 }
 
 export default function CardMesaList({ cards }: CardMesaListProps) {
-    const filterQuery = useFilterQuery();
+    const filterQuery = useDebounce(useFilterQuery(), 250);
     const statusFilter = useFilterStatus();
 
     const filteredCards = filterCards(
