@@ -1,5 +1,5 @@
 import CardOrdersheetList from "@/components/cardLists/DashboardCardOrdersheetList";
-import { getDashboardOrdersheets } from "@/lib/ordersheet";
+import { getDashboardOrdersheets } from "@/lib/cards/ordersheet";
 
 export default async function OrdersheetDashboard() {
     const cards = await getDashboardOrdersheets();
