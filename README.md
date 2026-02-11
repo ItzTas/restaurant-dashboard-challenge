@@ -65,7 +65,7 @@ além de servir como uma boa oportunidade para explorar seu uso na prática.
 #### styled-components
 
 Para estilização foi usado o styled-components.
-Foi escolhido pela simplicidade para criar componentes junto de css.
+Foi escolhido pela facilidade de integrar estilos aos componentes
 
 #### react-virtuoso
 
@@ -74,3 +74,5 @@ Foi escolhido por oferecer uma alternativa mais flexível para layouts responsiv
 em comparação com o react-window.
 
 #### json-server
+
+Para 
