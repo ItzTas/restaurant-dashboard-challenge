@@ -81,11 +81,11 @@ Para mock de api foi usado o json-server.
 
 #### /src/app
 
-A pasta principal, onde fica os layouts e paginas do app router
+A pasta principal, onde fica os layouts e paginas do app router.
 
 #### /src/app/dashboard
 
-Rota interna dashboard, onde ficam os dashboards com os cards de ordersheet e mesa
+Rota interna dashboard, onde ficam os dashboards com os cards de ordersheet e mesa.
 
 #### /src/components
 
@@ -112,7 +112,7 @@ Pasta com funções simples que se comunicam com a api.
 
 #### /src/lib/cards
 
-Pasta com funções mais complexas que normalmente se relacionam com a api e processam dados utilizados pelos cards
+Pasta com funções mais complexas que normalmente se relacionam com a api e processam dados utilizados pelos cards.
 
 #### /src/types
 
@@ -126,4 +126,4 @@ Pasta com funções utilitárias simples que não interagem diretamente com a AP
 #### /src/constants
 
 Pasta com constantes utilizadas pelo projeto,
-como configurações, presets e valores fixos compartilhados
+como configurações, presets e valores fixos compartilhados.
