@@ -1,7 +1,4 @@
-import {
-    OrdersheetsResponse,
-    OrdersheetValue,
-} from "@/types/api";
+import { OrdersheetsResponse, OrdersheetValue } from "@/types/api";
 import { apiUrl } from "../../constants/api";
 
 export async function getAllOrdersheet(): Promise<OrdersheetsResponse> {
