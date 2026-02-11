@@ -169,7 +169,7 @@ export default function DropdownPrimary({
                     {options.map((option) => (
                         <Option
                             key={option.id}
-                            onClick={() => handleSelect(option.id)}
+                            onClick={() => handleSelect(option)}
                             data-active={option.id === selected.id}
                         >
                             {option.label}
