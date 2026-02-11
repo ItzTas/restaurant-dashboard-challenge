@@ -11,3 +11,16 @@ Ferramentas:
 - Gerenciador de Pacotes: Yarn (npm tambem deverá funcionar)
 
 ## Como rodar
+
+<details>
+<summary>yarn</summary>
+
+```bash
+
+yarn run dev # Para rodar o next
+yarn run mock-api # Para rodar o json server
+yarn run dev:all # Para rodas os dois
+
+```
+
+</details>
