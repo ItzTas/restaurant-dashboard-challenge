@@ -15,7 +15,7 @@ const filtersSlice = createSlice({
             state.filterQuery = action.payload;
         },
 
-        setStatus(state, action: PayloadAction<string | undefined>) {
+        setStatusFilter(state, action: PayloadAction<string | undefined>) {
             state.status = action.payload;
         },
 
@@ -29,7 +29,7 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { setStatus, setWaiter, setFilterQuery, resetFilters } =
+export const { setStatusFilter, setWaiter, setFilterQuery, resetFilters } =
     filtersSlice.actions;
 
 export default filtersSlice.reducer;

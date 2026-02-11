@@ -1,6 +1,6 @@
 "use client";
 
-import { useFilterQuery } from "@/features/filters/hooks";
+import { useFilterQuery, useFilterStatus } from "@/features/filters/hooks";
 import CardOrdersheet from "../cards/CardOrdersheet";
 import { CardOrdersheetProps } from "../cards/CardOrdersheet";
 import CardsGridList from "./CardsGridList";
@@ -9,10 +9,15 @@ interface CardOrdersheetListProps {
     cards: CardOrdersheetProps[];
 }
 
-export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
-    const filterQuery = useFilterQuery().toLowerCase();
+function filterCards(
+    cards: CardOrdersheetProps[],
+    filterQuery: string,
+    statusFilter?: string,
+) {
+    const query = filterQuery.toLowerCase();
+    const status = statusFilter?.toLowerCase();
 
-    const filteredCards = cards.filter((card) => {
+    return cards.filter((card) => {
         const values = [
             card.identifier,
             card.contact?.value,
@@ -21,10 +26,21 @@ export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
             card.model?.value,
         ];
 
-        return values
+        const matchesSearch = values
             .filter(Boolean)
-            .some((text) => text!.toLowerCase().includes(filterQuery));
+            .some((text) => text!.toLowerCase().includes(query));
+
+        const matchesStatus = !status || card.activity?.toLowerCase() === status;
+
+        return matchesSearch && matchesStatus;
     });
+}
+
+export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
+    const filterQuery = useFilterQuery();
+    const statusFilter = useFilterStatus();
+
+    const filteredCards = filterCards(cards, filterQuery, statusFilter);
 
     return (
         <CardsGridList

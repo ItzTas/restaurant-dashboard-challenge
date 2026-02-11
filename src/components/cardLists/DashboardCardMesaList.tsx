@@ -1,28 +1,29 @@
 "use client";
 
-import { useFilterQuery } from "@/features/filters/hooks";
+import { useFilterQuery, useFilterStatus } from "@/features/filters/hooks";
 import CardMesa from "../cards/CardMesa";
 import { CardMesaProps } from "../cards/CardMesa";
 import CardsGridList from "./CardsGridList";
+import { filterCards } from "@/utils/cards";
 
 export interface CardMesaListProps {
     cards: CardMesaProps[];
 }
 
 export default function CardMesaList({ cards }: CardMesaListProps) {
-    const filterQuery = useFilterQuery().toLowerCase();
+    const filterQuery = useFilterQuery();
+    const statusFilter = useFilterStatus();
 
-    const filteredCards = cards.filter((card) => {
-        const values = [
+    const filteredCards = filterCards(
+        cards,
+        (card: CardMesaProps) => [
             card.identifier,
             card.data?.customer.value,
             card.data?.waiterFullName,
-        ];
-
-        return values
-            .filter(Boolean)
-            .some((text) => text!.toLowerCase().includes(filterQuery));
-    });
+        ],
+        filterQuery,
+        statusFilter,
+    );
 
     return (
         <CardsGridList
