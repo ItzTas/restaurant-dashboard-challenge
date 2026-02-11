@@ -4,6 +4,8 @@ import { SVGProps, useState, useRef, useEffect } from "react";
 import ArrowDropDownIcon from "@/components/icons/ArrowDropDownIcon";
 import ArrowDropUpIcon from "../icons/ArrowDropUpIcon";
 import styled from "styled-components";
+import DropdownMenu from "./DropdownMenu";
+import DropdownOption from "./DropdownOption";
 
 const ArrowWrapper = styled.span`
   display: inline-flex;
@@ -39,50 +41,6 @@ const Button = styled.button`
 const DropdownContainer = styled.div`
   display: inline-block;
   position: relative;
-`;
-
-const Menu = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  min-width: 200px;
-  max-width: 300px;
-  display: inline-block;
-  position: absolute;
-  z-index: 10;
-`;
-
-const Option = styled.button`
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  background-color: white;
-  color: #333;
-  text-align: left;
-  cursor: pointer;
-  font-size: 15px;
-  transition: background-color 0.15s ease;
-  font-family: inherit;
-  white-space: nowrap;
-
-  &:hover {
-    filter: brightness(80%);
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  &[data-active="true"] {
-    background-color: #212121;
-    color: white;
-
-    &:hover {
-      background-color: #1a1a1a;
-      filter: brightness(180%);
-    }
-  }
 `;
 
 const Subtitle = styled.span`
@@ -152,7 +110,7 @@ export default function DropdownPrimary({
     const selectedOption = options.find((opt) => opt.id === selected.id);
 
     return (
-        <DropdownContainer ref={containerRef}>
+        <DropdownContainer>
             <Button onClick={() => setIsOpen(!isOpen)}>
                 <Label>{selectedOption?.label}</Label>
                 <ArrowWrapper>
@@ -165,9 +123,9 @@ export default function DropdownPrimary({
             </Button>
 
             {isOpen && (
-                <Menu>
+                <DropdownMenu>
                     {options.map((option) => (
-                        <Option
+                        <DropdownOption
                             key={option.id}
                             onClick={() => handleSelect(option)}
                             data-active={option.id === selected.id}
@@ -181,9 +139,9 @@ export default function DropdownPrimary({
                                     ({option.subtitle})
                                 </Subtitle>
                             )}
-                        </Option>
+                        </DropdownOption>
                     ))}
-                </Menu>
+                </DropdownMenu>
             )}
         </DropdownContainer>
     );
