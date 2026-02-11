@@ -2,12 +2,17 @@
 
 import { SVGProps, useState, useRef, useEffect } from "react";
 import ArrowDropDownIcon from "@/components/icons/ArrowDropDownIcon";
-import ArrowDropUpIcon from "../icons/ArrowDropUpIcon";
 import styled from "styled-components";
 import DropdownMenu from "./DropdownMenu";
 import DropdownOption from "./DropdownOption";
+import ArrowWrapper from "./ArrowWrapper";
 
-const ArrowWrapper = styled.span`
+const Container = styled.div`
+  display: inline-block;
+  position: relative;
+`;
+
+const ArrowWrapperStyled = styled(ArrowWrapper)`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -36,11 +41,6 @@ const Button = styled.button`
   align-items: center;
   border: none;
   background-color: transparent;
-`;
-
-const DropdownContainer = styled.div`
-  display: inline-block;
-  position: relative;
 `;
 
 const Subtitle = styled.span`
@@ -110,16 +110,12 @@ export default function DropdownPrimary({
     const selectedOption = options.find((opt) => opt.id === selected.id);
 
     return (
-        <DropdownContainer>
+        <Container ref={containerRef}>
             <Button onClick={() => setIsOpen(!isOpen)}>
                 <Label>{selectedOption?.label}</Label>
-                <ArrowWrapper>
-                    {isOpen ? (
-                        <ArrowDropUpIcon {...iconProps} />
-                    ) : (
-                        <ArrowDropDownIcon {...iconProps} />
-                    )}
-                </ArrowWrapper>
+                <ArrowWrapperStyled data-open={isOpen}>
+                    <ArrowDropDownIcon {...iconProps} />
+                </ArrowWrapperStyled>
             </Button>
 
             {isOpen && (
@@ -143,6 +139,6 @@ export default function DropdownPrimary({
                     ))}
                 </DropdownMenu>
             )}
-        </DropdownContainer>
+        </Container>
     );
 }
