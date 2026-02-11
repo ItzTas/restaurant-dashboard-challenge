@@ -5,7 +5,7 @@ export function useFilterQuery() {
 }
 
 export function useFilterStatus() {
-    return useAppSelector((state) => state.filters.status);
+    return useAppSelector((state) => state.filters.statusFilter);
 }
 
 export function useFilterWaiter() {
