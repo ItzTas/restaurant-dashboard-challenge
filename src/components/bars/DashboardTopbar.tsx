@@ -2,8 +2,8 @@ import styled from "styled-components";
 import SearchInput from "../inputs/FilterInput";
 import NavOptions, { TabItem } from "../buttons/NavOptions";
 import { DashboardSlugsArray } from "@/constants/dashboard";
-import DropdownPrimary from "../dropdowns/DropdownPrimary";
 import { capitalize } from "@/utils/string";
+import StatusDropdown from "../dropdowns/StatusDropdown";
 
 const NavContainer = styled.nav`
   padding: 12px 16px;
@@ -31,16 +31,9 @@ export default function DashboardTopbar() {
         path: `dashboard/${slug}`,
     }));
 
-    const areas = [
-        { id: "visao-geral", label: "Visão Geral", subtitle: "todas as áreas" },
-        { id: "salao-principal", label: "Salão Principal" },
-        { id: "lounge", label: "Lounge" },
-        { id: "area-externa", label: "Área Externa" },
-    ];
-
     return (
         <NavContainer>
-            <DropdownPrimary options={areas} />
+            <StatusDropdown />
             <RightContainer>
                 <NavOptions tabs={tabs} />
                 <SearchInput />
