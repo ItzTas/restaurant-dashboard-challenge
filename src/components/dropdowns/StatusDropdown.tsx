@@ -1,9 +1,10 @@
 "use client";
 
 import { ApiActivity } from "@/types/api";
-import DropdownPrimary, { DropDownPrimaryOption } from "./DropdownPrimary";
+import DropdownPrimary from "./DropdownPrimary";
 import { useDispatch } from "react-redux";
 import { setStatusFilter } from "@/features/filters/slice";
+import { DropdownSelectOption } from "@/types/dropdown";
 
 type Activity = ApiActivity | "all";
 
@@ -36,7 +37,7 @@ export default function StatusDropdown() {
         },
     ];
 
-    function handleChange(option: DropDownPrimaryOption) {
+    function handleChange(option: DropdownSelectOption) {
         if (option.id === "all") {
             dispatcher(setStatusFilter(""));
             return;
