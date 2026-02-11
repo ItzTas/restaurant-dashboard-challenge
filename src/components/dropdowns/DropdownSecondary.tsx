@@ -41,7 +41,7 @@ const StyledOption = styled(DropdownOption)``;
 interface DropdownSelectProps {
     options: DropdownSelectOption[];
     defaultValue?: string;
-    onChange?: (value: DropdownSelectOption) => void;
+    onChange?: (arg0: DropdownSelectOption) => void;
 }
 
 export default function DropdownSecondary({
