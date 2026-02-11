@@ -9,7 +9,7 @@
         "start": "next start",
         "lint": "eslint",
         "mock-api": "json-server --watch db.json --port 3001",
-        "dev:all": "concurrently \"json-server --watch db.json --port 3001\" \"yarn dev\""
+        "dev:all": "concurrently \"json-server --watch db.json --port 3001\" \"next dev\""
     },
     "dependencies": {
         "@reduxjs/toolkit": "^2.11.2",
