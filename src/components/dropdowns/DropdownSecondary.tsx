@@ -6,20 +6,20 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownOption from "./DropdownOption";
 import ArrowDropUpIcon from "../icons/ArrowDropUpIcon";
 import ArrowWrapper from "./ArrowWrapper";
+import { DropdownSelectOption } from "@/types/dropdown";
 
-const dropdownWidth = "320px";
+const dropdownWidth = 320;
 
 const Container = styled.div`
   display: inline-block;
   position: relative;
-  width: ${dropdownWidth};
 `;
 
 const SelectButton = styled.button`
-  width: 100%;
+  width: ${dropdownWidth - 18}px;
   padding: 14px 20px;
   background-color: white;
-  border: 2px solid #333;
+  border: 2px solid #212121;
   border-radius: 8px;
   font-weight: 500;
   text-align: left;
@@ -28,32 +28,17 @@ const SelectButton = styled.button`
   justify-content: space-between;
   align-items: center;
   transition: all 0.2s ease;
-
-  &:hover {
-    background-color: #f5f5f5;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: #000;
-  }
 `;
 
 const StyledMenu = styled(DropdownMenu)`
   bottom: calc(100% + 8px);
-  width: ${dropdownWidth};
+  width: ${dropdownWidth}px;
 `;
 
 const StyledOption = styled(DropdownOption)``;
 
-export interface DropdownSelectOption {
-    id: string;
-    label: string;
-}
-
 interface DropdownSelectProps {
     options: DropdownSelectOption[];
-    placeholder?: string;
     defaultValue?: string;
     onChange?: (value: DropdownSelectOption) => void;
 }

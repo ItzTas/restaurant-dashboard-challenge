@@ -6,6 +6,7 @@ import styled from "styled-components";
 import DropdownMenu from "./DropdownMenu";
 import DropdownOption from "./DropdownOption";
 import ArrowWrapper from "./ArrowWrapper";
+import { DropdownSelectOption } from "@/types/dropdown";
 
 const Container = styled.div`
   display: inline-block;
@@ -54,16 +55,10 @@ const Subtitle = styled.span`
   }
 `;
 
-export interface DropDownPrimaryOption {
-    id: string;
-    label: string;
-    subtitle?: string;
-}
-
 interface DropdownPrimaryProps {
-    options: DropDownPrimaryOption[];
+    options: DropdownSelectOption[];
     defaultValue?: number;
-    onChange?: (value: DropDownPrimaryOption) => void;
+    onChange?: (value: DropdownSelectOption) => void;
 }
 
 export default function DropdownPrimary({
@@ -101,7 +96,7 @@ export default function DropdownPrimary({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    function handleSelect(optionId: DropDownPrimaryOption) {
+    function handleSelect(optionId: DropdownSelectOption) {
         setSelected(optionId);
         setIsOpen(false);
         onChange?.(optionId);
