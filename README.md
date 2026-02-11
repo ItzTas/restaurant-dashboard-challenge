@@ -24,7 +24,6 @@ yarn run dev:all # Para rodas os dois
 ```
 
 </details>
-
 <details>
 <summary>npm</summary>
 
