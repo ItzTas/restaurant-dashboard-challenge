@@ -59,12 +59,18 @@ npm run dev:all # Para rodar os dois
 #### Redux Toolkit
 
 Para gerenciamento de estados globais foi utilizado o redux toolkit.
-Foi escolhido por ter uma estrutura mais organizada em relação ao context, além de servir como uma boa oportunidade para explorar seu uso na prática.
+Foi escolhido por ter uma estrutura mais organizada em relação ao context,
+além de servir como uma boa oportunidade para explorar seu uso na prática.
 
 #### styled-components
 
 Para estilização foi usado o styled-components.
+Foi escolhido pela simplicidade para criar componentes junto de css.
 
 #### react-virtuoso
+
+Para virtualização de listas foi usado o react-virtuoso.
+Foi escolhido por oferecer uma alternativa mais flexivel para layouts responsivos que usam grid e derivados
+em comparação com o react-window.
 
 #### json-server
