@@ -124,7 +124,7 @@ export default function DropdownPrimary({
             : 0;
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState(options[initialIndex].id);
+    const [selected, setSelected] = useState(options[initialIndex]?.id);
 
     const containerRef = useRef<HTMLDivElement>(null);
 
