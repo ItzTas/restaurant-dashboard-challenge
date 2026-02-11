@@ -9,7 +9,7 @@ import CardMesa from "../cards/CardMesa";
 import { CardMesaProps } from "../cards/CardMesa";
 import CardsGridList from "./CardsGridList";
 import { filterCards } from "@/utils/cards";
-import { useDebounce } from "../hooks/useDebounce";
+import { useDebounce } from "../../hooks/useDebounce";
 import { Filters } from "@/features/filters/types";
 
 export interface CardMesaListProps {

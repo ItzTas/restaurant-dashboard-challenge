@@ -9,7 +9,7 @@ import CardOrdersheet from "../cards/CardOrdersheet";
 import { CardOrdersheetProps } from "../cards/CardOrdersheet";
 import CardsGridList from "./CardsGridList";
 import { filterCards } from "@/utils/cards";
-import { useDebounce } from "../hooks/useDebounce";
+import { useDebounce } from "../../hooks/useDebounce";
 import { Filters } from "@/features/filters/types";
 
 interface CardOrdersheetListProps {
