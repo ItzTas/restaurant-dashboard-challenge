@@ -30,6 +30,10 @@ export type CheckpadModel = (typeof CheckpadModel)[keyof typeof CheckpadModel];
 export type ApiActivity = (typeof ApiActivity)[keyof typeof ApiActivity];
 
 export interface CheckpadsResponse {
+    checkpads: CheckpadsKeys;
+}
+
+export interface CheckpadsKeys {
     [key: string]: CheckpadValue;
 }
 
