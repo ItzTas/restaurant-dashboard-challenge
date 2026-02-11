@@ -16,7 +16,7 @@ export default function TimePassed({ from = new Date() }: MinutesPassedProps) {
         }
 
         update();
-        const interval = setInterval(update, 60000); // atualiza a cada minuto
+        const interval = setInterval(update, 60000);
 
         return () => clearInterval(interval);
     }, [from]);
