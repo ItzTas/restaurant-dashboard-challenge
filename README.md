@@ -71,7 +71,7 @@ Foi escolhido pela customização e facilidade de integrar estilos aos component
 
 Para virtualização de listas foi usado o react-virtuoso.
 Foi escolhido por oferecer uma alternativa mais flexível para layouts responsivos que usam grid e derivados
-em comparação com o react-window.
+em comparação ao react-window.
 
 #### json-server
 
