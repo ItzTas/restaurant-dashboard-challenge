@@ -1,13 +1,20 @@
 import { ApiActivity } from "@/types/api";
 
+interface Filters {
+    filterQuery: string;
+    statusFilter: string;
+    waiterFilter: string;
+}
+
 export function filterCards<T extends { activity?: ApiActivity }>(
     cards: T[],
     getValues: (card: T) => (string | undefined)[],
-    filterQuery: string,
-    statusFilter?: string,
+    filters: Filters,
 ) {
+    const { filterQuery, statusFilter } = filters;
+
     const query = filterQuery.toLowerCase();
-    const status = statusFilter?.trim().toLowerCase(); // trim evita espaços
+    const status = statusFilter?.trim().toLowerCase(); 
 
     return cards.filter((card) => {
         const values = getValues(card);
