@@ -96,7 +96,7 @@ const Subtitle = styled.span`
   }
 `;
 
-interface DropDownPrimaryOption {
+export interface DropDownPrimaryOption {
     id: string;
     label: string;
     subtitle?: string;
@@ -105,7 +105,7 @@ interface DropDownPrimaryOption {
 interface DropdownPrimaryProps {
     options: DropDownPrimaryOption[];
     defaultValue?: number;
-    onChange?: (value: string) => void;
+    onChange?: (value: DropDownPrimaryOption) => void;
 }
 
 export default function DropdownPrimary({
@@ -118,13 +118,14 @@ export default function DropdownPrimary({
         height: "9px",
         style: { marginRight: "2px" },
     } as const;
+
     const initialIndex =
         typeof defaultValue === "number" && options[defaultValue]
             ? defaultValue
             : 0;
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState(options[initialIndex]?.id);
+    const [selected, setSelected] = useState(options[initialIndex]);
 
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -142,13 +143,13 @@ export default function DropdownPrimary({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    function handleSelect(optionId: string) {
+    function handleSelect(optionId: DropDownPrimaryOption) {
         setSelected(optionId);
         setIsOpen(false);
         onChange?.(optionId);
     }
 
-    const selectedOption = options.find((opt) => opt.id === selected);
+    const selectedOption = options.find((opt) => opt.id === selected.id);
 
     return (
         <DropdownContainer ref={containerRef}>
@@ -169,13 +170,13 @@ export default function DropdownPrimary({
                         <Option
                             key={option.id}
                             onClick={() => handleSelect(option.id)}
-                            data-active={option.id === selected}
+                            data-active={option.id === selected.id}
                         >
                             {option.label}
 
                             {option.subtitle && (
                                 <Subtitle
-                                    data-active={option.id === selected ? "true" : "false"}
+                                    data-active={option.id === selected.id ? "true" : "false"}
                                 >
                                     ({option.subtitle})
                                 </Subtitle>
