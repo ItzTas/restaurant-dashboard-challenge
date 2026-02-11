@@ -26,7 +26,7 @@ ou
 
 ```bash
 
-yarn run dev:all # Para rodas os dois
+yarn run dev:all # Para rodar os dois
 
 ```
 
@@ -39,7 +39,14 @@ yarn run dev:all # Para rodas os dois
 
 npm run dev # Para rodar o next
 npm run mock-api # Para rodar o json server
-npm run dev:all # Para rodas os dois
+
+```
+
+ou
+
+```bash
+
+npm run dev:all # Para rodar os dois
 
 ```
 
