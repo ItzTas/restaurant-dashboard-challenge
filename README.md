@@ -24,8 +24,10 @@ http://localhost:3000
 
 ```
 
+Comandos:
+
 <details>
-<summary>yarn</summary>
+<summary>Yarn</summary>
 
 ```bash
 
@@ -45,7 +47,7 @@ yarn run dev:all # Para rodar os dois
 </details>
 
 <details>
-<summary>npm</summary>
+<summary>NPM</summary>
 
 ```bash
 
@@ -65,7 +67,7 @@ npm run dev:all # Para rodar os dois
 </details>
 
 <details>
-<summary>docker</summary>
+<summary>Docker</summary>
 
 ```bash
 
