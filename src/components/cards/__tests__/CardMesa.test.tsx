@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import CardMesa, { CardMesaProps, CardMesaPropsData } from "../CardMesa";
 import { ApiActivity, CheckpadModel, CheckpadModelIcon } from "@/constants/api";
 
-const mockData: CardMesaPropsData = {
+const data: CardMesaPropsData = {
     ordersheetsNum: 3,
     customer: {
         value: "Test Customer",
@@ -20,7 +20,7 @@ const defaultProps: CardMesaProps = {
     identifier: "1",
     waiterFullName: "João Silva",
     activity: ApiActivity.Active,
-    data: mockData,
+    data: data,
 };
 
 describe("CardMesa component", () => {
@@ -32,18 +32,18 @@ describe("CardMesa component", () => {
     it("renders the number of ordersheets", () => {
         render(<CardMesa {...defaultProps} />);
         expect(
-            screen.getByText(mockData.ordersheetsNum.toString()),
+            screen.getByText(data.ordersheetsNum.toString()),
         ).toBeInTheDocument();
     });
 
     it("renders the customer name", () => {
         render(<CardMesa {...defaultProps} />);
-        expect(screen.getByText(mockData.customer.value)).toBeInTheDocument();
+        expect(screen.getByText(data.customer.value)).toBeInTheDocument();
     });
 
     it("renders the correct model with its icon", () => {
         render(<CardMesa {...defaultProps} />);
-        expect(screen.getByText(mockData.model.value)).toBeInTheDocument();
+        expect(screen.getByText(data.model.value)).toBeInTheDocument();
         expect(screen.getByTestId("checkpad-icon")).toBeInTheDocument();
     });
 
@@ -54,7 +54,7 @@ describe("CardMesa component", () => {
 
     it("renders the footer with the correct price", () => {
         render(<CardMesa {...defaultProps} />);
-        expect(screen.getByText(`R$${mockData.totalPrice}`)).toBeInTheDocument();
+        expect(screen.getByText(`R$${data.totalPrice}`)).toBeInTheDocument();
     });
 
     it("renders correctly when no data is provided", () => {
@@ -64,6 +64,6 @@ describe("CardMesa component", () => {
         };
         render(<CardMesa {...props} />);
         expect(screen.getByText(props.identifier)).toBeInTheDocument();
-        expect(screen.queryByText(mockData.customer.value)).not.toBeInTheDocument();
+        expect(screen.queryByText(data.customer.value)).not.toBeInTheDocument();
     });
 });
