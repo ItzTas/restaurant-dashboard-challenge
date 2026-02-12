@@ -95,6 +95,10 @@ Pasta com componentes para serem utilizados em toda aplicação.
 Organizada em categorias de acordo com o tipo de componente, como:
 bars, buttons, cardLists, cards, dropdowns, feedback, icons, inputs e time.
 
+#### /src/components/\*\*/**tests**
+
+Pasta com testes unitários de componentes.
+
 #### /src/hooks
 
 Pasta para hooks customizados não dependentes de algum modulo ou biblioteca.
