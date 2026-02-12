@@ -127,4 +127,17 @@ describe("MesaCardList", () => {
         expect(screen.queryByText("Mesa 1")).toBeNull();
         expect(screen.queryByText("Mesa 3")).toBeNull();
     });
+
+    it("renders no cards when all filters result in nothing", () => {
+        (useFilterQuery as jest.Mock).mockReturnValue("inexistente");
+        (useFilterStatus as jest.Mock).mockReturnValue("inactive");
+        (useFilterWaiter as jest.Mock).mockReturnValue("João");
+
+        render(<MesaCardList cards={cards} />);
+
+        expect(screen.queryByText("Mesa 1")).toBeNull();
+        expect(screen.queryByText("Mesa 2")).toBeNull();
+        expect(screen.queryByText("Mesa 3")).toBeNull();
+    });
 });
+
