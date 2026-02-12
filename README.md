@@ -10,7 +10,7 @@ Ferramentas:
 
 - Node.js: 20.x
 - Yarn: 1.x
-- Gerenciador de Pacotes: Yarn (npm tambem deverá funcionar)
+- Gerenciador de Pacotes: Yarn (npm também deverá funcionar)
 
 ## Como rodar
 
