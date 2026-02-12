@@ -63,6 +63,8 @@ docker compose up
 
 ```
 
+No docker é usado o webpack ao invés do turbopack por motivos de compatibilidade.
+
 </details>
 
 ## Tests
