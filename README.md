@@ -14,7 +14,7 @@ Ferramentas:
 
 ## Como rodar
 
-O projeto roda na porta **3000** por padrão.
+O projeto roda na porta 3000 por padrão.
 
 Para acessar, abra o navegador e vá para:
 
