@@ -67,7 +67,7 @@ docker compose up
 
 ## Tests
 
-O projeto utiliza Jest junto com React Testing Library para testes de componentes e hooks.
+O projeto utiliza Jest junto com React Testing Library para testes.
 
 ### Rodando os testes
 
