@@ -6,6 +6,8 @@ import { WaiterNamesArray } from "@/constants/waiters";
 import { DropdownSelectOption } from "@/types/dropdown";
 import { useDispatch } from "react-redux";
 import { setWaiterFilter } from "@/features/filters/slice";
+import { useFilterWaiter } from "@/features/filters/hooks";
+import { getDefaultOption } from "@/utils/filters";
 
 type WaiterOption = WaiterName | "all";
 
@@ -17,6 +19,7 @@ interface Option {
 
 export default function WaitersDropdown() {
     const dispatch = useDispatch();
+    const waiterFilter = useFilterWaiter();
 
     const options: Option[] = [
         {
@@ -32,6 +35,8 @@ export default function WaitersDropdown() {
         });
     }
 
+    const defaultValue = getDefaultOption(options, waiterFilter);
+
     function handleChange(option: DropdownSelectOption) {
         if (option.id === "all") {
             dispatch(setWaiterFilter(""));
@@ -40,5 +45,11 @@ export default function WaitersDropdown() {
         dispatch(setWaiterFilter(option.id));
     }
 
-    return <DropdownSecondary onChange={handleChange} options={options} />;
+    return (
+        <DropdownSecondary
+            defaultValue={defaultValue}
+            onChange={handleChange}
+            options={options}
+        />
+    );
 }

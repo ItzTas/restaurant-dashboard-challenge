@@ -8,7 +8,7 @@ import {
 import CardMesa from "../cards/CardMesa";
 import { CardMesaProps } from "../cards/CardMesa";
 import CardsGridList from "./CardsGridList";
-import { filterCards } from "@/utils/cards";
+import { filterCards } from "@/utils/filters";
 import { useDebounce } from "../../hooks/useDebounce";
 import { Filters } from "@/features/filters/types";
 

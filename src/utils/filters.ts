@@ -29,3 +29,18 @@ export function filterCards<
         return matchesSearch && matchesStatus && matchesWaiter;
     });
 }
+
+export function getDefaultOption<T extends { id: string }>(
+    options: T[],
+    filter?: string,
+): number {
+    if (!filter) return 0;
+
+    for (const [i, option] of options.entries()) {
+        if (option.id === filter) {
+            return i;
+        }
+    }
+
+    return 0;
+}

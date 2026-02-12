@@ -40,7 +40,7 @@ const StyledOption = styled(DropdownOption)``;
 
 interface DropdownSelectProps {
     options: DropdownSelectOption[];
-    defaultValue?: string;
+    defaultValue?: number;
     onChange?: (arg0: DropdownSelectOption) => void;
 }
 

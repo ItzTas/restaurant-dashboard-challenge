@@ -8,7 +8,7 @@ import {
 import CardOrdersheet from "../cards/CardOrdersheet";
 import { CardOrdersheetProps } from "../cards/CardOrdersheet";
 import CardsGridList from "./CardsGridList";
-import { filterCards } from "@/utils/cards";
+import { filterCards } from "@/utils/filters";
 import { useDebounce } from "../../hooks/useDebounce";
 import { Filters } from "@/features/filters/types";
 
