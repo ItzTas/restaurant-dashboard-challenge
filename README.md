@@ -65,6 +65,22 @@ docker compose up
 
 </details>
 
+## Tests
+
+O projeto utiliza Jest junto com React Testing Library para testes de componentes e hooks.
+
+### Rodando os testes
+
+Para executar todos os testes:
+
+```bash
+
+yarn test
+# ou
+npm run test
+
+```
+
 ## Decisões arquiteturais
 
 ### Bibliotecas usadas
@@ -157,14 +173,14 @@ de modo que apenas os necessários sejam componentes do lado do cliente,
 enquanto o restante permanece como componentes de servidor.
 Isso também facilita a utilização de possíveis componentes suspend.
 
-Ao entrar em uma página do dashboard, é retornado um componente assíncrono de server que chama uma função helper de API correspondente à página.  
+Ao entrar em uma página do dashboard, é retornado um componente assíncrono de server que chama uma função helper de API correspondente à página.
 Essa função realiza requisições para os endpoints `/ordersheets` ou `/checkpadResponse`.
 
 A página renderiza um componente de lista de cards no lado do cliente, responsável pela virtualização com o Virtuoso.
 
 Esse componente gerencia o estado da lista, lê os estados globais de filtro para aplicá-los nos cards e retorna a lista já filtrada com os componentes correspondentes.
 
-O dashboard possui um layout composto por diferentes componentes.  
+O dashboard possui um layout composto por diferentes componentes.
 Um deles é a topbar, que contém:
 
 - Um dropdown com os status dos cards, que ao ser selecionado altera o estado global `statusFilter`.
@@ -174,3 +190,7 @@ Um deles é a topbar, que contém:
 O layout também retorna uma bottombar, que possui:
 
 - Um dropdown de atendentes que altera o estado global `waiterFilter` e filtra os cards de acordo com o atendente selecionado.
+
+```
+
+```
