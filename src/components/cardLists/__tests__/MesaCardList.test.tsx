@@ -140,4 +140,3 @@ describe("MesaCardList", () => {
         expect(screen.queryByText("Mesa 3")).toBeNull();
     });
 });
-
