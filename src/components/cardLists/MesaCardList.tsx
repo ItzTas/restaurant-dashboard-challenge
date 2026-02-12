@@ -5,40 +5,38 @@ import {
     useFilterStatus,
     useFilterWaiter,
 } from "@/features/filters/hooks";
-import CardOrdersheet from "../cards/CardOrdersheet";
-import { CardOrdersheetProps } from "../cards/CardOrdersheet";
+import CardMesa from "../cards/CardMesa";
+import { CardMesaProps } from "../cards/CardMesa";
 import CardsGridList from "./CardsGridList";
 import { filterCards } from "@/utils/cards";
 import { useDebounce } from "../../hooks/useDebounce";
 import { Filters } from "@/features/filters/types";
 
-interface CardOrdersheetListProps {
-    cards: CardOrdersheetProps[];
+export interface CardMesaListProps {
+    cards: CardMesaProps[];
 }
 
-export default function CardOrdersheetList({ cards }: CardOrdersheetListProps) {
+export default function MesaCardList({ cards }: CardMesaListProps) {
     const filterQuery = useDebounce(useFilterQuery(), 250);
     const statusFilter = useFilterStatus();
     const waiterFilter = useFilterWaiter();
 
     const filters: Filters = {
-        statusFilter,
         filterQuery,
+        statusFilter,
         waiterFilter,
     };
 
-    const filteredCards = filterCards(cards, filters, (card) => [
+    const filteredCards = filterCards(cards, filters, (card: CardMesaProps) => [
         card.identifier,
-        card.contact?.value,
+        card.data?.customer.value,
         card.waiterFullName,
-        card.tableText,
-        card.model?.value,
     ]);
 
     return (
         <CardsGridList
             data={filteredCards}
-            itemContent={(_, card) => <CardOrdersheet {...card} />}
+            itemContent={(_, card) => <CardMesa {...card} />}
         />
     );
 }
