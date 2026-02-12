@@ -19,5 +19,5 @@ interface Props extends SVGProps<SVGSVGElement> {
 
 export default function CheckpadIcon({ icon, ...props }: Props) {
     const Component = icons[icon];
-    return <Component {...props} />;
+    return <Component data-testid="checkpad-icon" {...props} />;
 }
