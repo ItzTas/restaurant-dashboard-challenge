@@ -75,6 +75,11 @@ Para gerenciamento de estados globais foi utilizado o redux toolkit.
 Foi escolhido por ter uma estrutura mais organizada em relação ao context,
 além de permitir atualizações granulares dos estados.
 
+#### redux-persist
+
+Para persistencia de estados globais foi utilizado o redux-persist.
+Foi escolhido pela facilidade de salvar o estado entre reloads.
+
 #### styled-components
 
 Para estilização foi usado o styled-components.
