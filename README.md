@@ -1,5 +1,7 @@
 # restaurant-dashboard-challenge
 
+Projeto de dashboard para gerenciamento de mesas e pedidos de restaurante.
+
 ## Desenvolvimento e Ferramentas
 
 Para gerenciar as ferramentas foi usado o [proto](https://moonrepo.dev/proto) para baixar as versões do node e yarn automaticamente de acordo com o arquivo [.prototools](https://github.com/ItzTas/restaurant-dashboard-challenge/blob/main/.prototools)
