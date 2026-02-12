@@ -135,7 +135,8 @@ como configurações, presets e valores fixos compartilhados.
 Ao entrar em uma página do dashboard, é retornado um componente assíncrono de server que chama uma função helper de API correspondente à página.  
 Essa função realiza requisições para os endpoints `/ordersheets` ou `/checkpadResponse`.
 
-Dentro do componente da página é utilizado um componente cliente responsável pela lista de cards, que usa o Virtuoso para virtualização.  
+A página renderiza um componente de lista de cards no lado do cliente, responsável pela virtualização com o Virtuoso.
+
 Esse componente gerencia o estado da lista, lê os estados globais de filtro para aplicá-los nos cards e retorna a lista já filtrada com os componentes correspondentes.
 
 O dashboard possui um layout composto por diferentes componentes.  
