@@ -192,7 +192,3 @@ Um deles é a topbar, que contém:
 O layout também retorna uma bottombar, que possui:
 
 - Um dropdown de atendentes que altera o estado global `waiterFilter` e filtra os cards de acordo com o atendente selecionado.
-
-```
-
-```
