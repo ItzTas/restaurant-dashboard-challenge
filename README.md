@@ -14,6 +14,16 @@ Ferramentas:
 
 ## Como rodar
 
+O projeto roda na porta **3000** por padrão.
+
+Para acessar, abra o navegador e vá para:
+
+```bash
+
+http://localhost:3000
+
+```
+
 <details>
 <summary>yarn</summary>
 
