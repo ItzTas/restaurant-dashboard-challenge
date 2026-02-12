@@ -2,3 +2,6 @@
 /.prototools
 /jest.config.ts
 /jest.setup.ts
+/node_modules
+.pnp
+.pnp.js
