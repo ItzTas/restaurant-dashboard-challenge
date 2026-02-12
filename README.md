@@ -147,6 +147,11 @@ como configurações, presets e valores fixos compartilhados.
 
 ## Fluxo de dados
 
+Os componentes foram organizados de forma atômica,
+de modo que apenas os necessários sejam componentes do lado do cliente,
+enquanto o restante permanece como componentes de servidor.
+Isso também facilita a utilização de possíveis componentes suspend.
+
 Ao entrar em uma página do dashboard, é retornado um componente assíncrono de server que chama uma função helper de API correspondente à página.  
 Essa função realiza requisições para os endpoints `/ordersheets` ou `/checkpadResponse`.
 
