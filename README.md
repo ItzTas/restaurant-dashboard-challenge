@@ -54,6 +54,17 @@ npm run dev:all # Para rodar os dois
 
 </details>
 
+<details>
+<summary>docker</summary>
+
+```bash
+
+docker compose up
+
+```
+
+</details>
+
 ## Decisões arquiteturais
 
 ### Bibliotecas usadas
