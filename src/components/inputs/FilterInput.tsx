@@ -5,6 +5,7 @@ import SearchIcon from "../icons/SearchIcon";
 import styled from "styled-components";
 import { setFilterQuery } from "@/features/filters/slice";
 import { useAppDispatch } from "@/store/hooks";
+import { useFilterQuery } from "@/features/filters/hooks";
 
 const Label = styled.label`
   display: flex;
@@ -28,6 +29,7 @@ export default function FilterInput({
     labelProps,
 }: SearchInputProps) {
     const dispatch = useAppDispatch();
+    const filterQuery = useFilterQuery();
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         dispatch(setFilterQuery(e.target.value));
@@ -38,7 +40,7 @@ export default function FilterInput({
             <IconWrapper>
                 <SearchIcon width={17} height={17} />
             </IconWrapper>
-            <Input onChange={handleChange} {...inputProps} />
+            <Input value={filterQuery} onChange={handleChange} {...inputProps} />
         </Label>
     );
 }
