@@ -129,3 +129,20 @@ Pasta com constantes utilizadas pelo projeto,
 como configurações, presets e valores fixos compartilhados.
 
 ## Fluxo de dados
+
+Ao entrar em uma página do dashboard, é retornado um componente assíncrono de server que chama uma função helper de API correspondente à página.  
+Essa função realiza requisições para os endpoints `/ordersheets` ou `/checkpadResponse`.
+
+Dentro do componente da página é utilizado um componente cliente responsável pela lista de cards, que usa o Virtuoso para virtualização.  
+Esse componente gerencia o estado da lista, lê os estados globais de filtro para aplicá-los nos cards e retorna a lista já filtrada com os componentes correspondentes.
+
+O dashboard possui um layout composto por diferentes componentes.  
+Um deles é a topbar, que contém:
+
+- Um dropdown com os status dos cards, que ao ser selecionado altera o estado global `statusFilter`.
+- Uma lista de botões que muda a URL da página conforme o botão selecionado.
+- Um input de busca que altera o estado global `filterQuery` e filtra os dados dos cards.
+
+O layout também retorna uma bottombar, que possui:
+
+- Um dropdown de atendentes que altera o estado global `waiterFilter` e filtra os cards de acordo com o atendente selecionado.
